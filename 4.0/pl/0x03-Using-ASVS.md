@@ -1,79 +1,79 @@
-# Using the ASVS
+# Wykorzystanie ASVS
 
-ASVS has two main goals:
+ASVS ma dwa główne cele:
 
-* to help organizations develop and maintain secure applications.
-* to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
+* pomagać organizacjom tworzyć i utrzymywać bezpieczne oprogramowanie;
+* umożliwić dostawcom usług związanych z bezpieczeństwem, producentom narzędzi związanych z bezpieczeństwem oraz użytkownikom, dostosowanie swoich wymagań i ofert.
 
-## Application Security Verification Levels
+## Poziomy Weryfikacji Bezpieczeństwa
 
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
+Standard Weryfikacji Bezpieczeństwa Aplikacji (ASVS) definiuje trzy poziomy weryfikacji bezpieczeństwa, przy czym każdy kolejny poziom jest bardziej zaawansowany.
 
-* ASVS Level 1 is for low assurance levels, and is completely penetration testable
-* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps
-* ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.
+* Poziom `ASVS 1` jest przeznaczony dla aplikacji o niskim poziomie wymagań bezpieczeństwa i jest w pełni testowalny za pomocą testów penetracyjnych
+* Poziom `ASVS 2` jest przeznaczony dla aplikacji zawierających wrażliwe dane, które wymagają ochrony, i jest zalecanym poziomem dla większości aplikacji
+* Poziom `ASVS 3` jest przeznaczony dla najbardziej krytycznych aplikacji — takich, które przeprowadzają transakcje o wysokiej wartości, zawierają wrażliwe dane medyczne lub inne poufne informacje, które wymagają najwyższego poziomu zaufania.
 
-Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
+Każdy poziom `ASVS` zawiera listę wymagań związanych z bezpieczeństwem. Każde z tych wymagań można również przyporządkować do konkretnych funkcji i możliwości związanych z bezpieczeństwem, które muszą być zaimplementowane przez deweloperów.
 
 ![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Levels")
 
-Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
+Rysunek 1 - OWASP Application Security Verification Standard 4.0 Levels
 
-Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not an effective assurance activity and should be actively discouraged. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to build in security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defense, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry.
+`Level 1` jest jedynym poziomem, który jest w pełni testowalny za pomocą testów penetracyjnych wykonywanych przez człowieka. Wszystkie inne poziomy wymagają dostępu do dokumentacji, kodu źródłowego, konfiguracji oraz zespołów zaangażowanych w proces tworzenia oprogramowania. Jednak nawet jeśli `L1` pozwala na "czarne skrzynki" (bez dokumentacji i bez kodu źródłowego) takie testowanie nie jest skutecznym zabezpieczeniem i należy ją aktywnie odradzać. Złośliwi atakujący mają wiele czasu, a większość testów penetracyjnych trwa zaledwie kilka tygodni. Zespoły muszą w rozsądnym czasie budować kontrole bezpieczeństwa, chronić, znajdować i usuwać wszystkie słabości oraz wykrywać i reagować na działania atakujących. Atakujący mają praktycznie nieskończony czas i potrzebują tylko jednej słabości lub błędu konfiguracji, aby odnieść sukces. Testowanie "czarnej skrzynki", często przeprowadzane "na szybko", na końcu procesu deweloperskiego, nie jest w stanie poradzić sobie z tą asymetrią.
 
-Over the last 30+ years, black box testing has proven over and over again to miss critical security issues that led directly to ever more massive breaches. We strongly encourage the use of a wide range of security assurance and verification, including replacing penetration tests with source code led (hybrid) penetration tests at Level 1, with full access to developers and documentation throughout the development process. Financial regulators do not tolerate external financial audits with no access to the books, sample transactions, or the people performing the controls. Industry and governments must demand the same standard of transparency in the software engineering field.
+Przez ponad 30 lat testowanie "czarnej skrzynki" udowodniło wiele razy, że pomija kluczowe problemy związane z bezpieczeństwem, które prowadziły bezpośrednio do coraz większych naruszeń. Zdecydowanie zachęcamy do stosowania szerokiego zakresu zapewniania bezpieczeństwa i weryfikacji, w tym do zastępowania testów penetracyjnych testami penetracyjnymi opartymi na kodzie źródłowym (hybrydowymi) na poziomie 1, z pełnym dostępem do dokumentacji i deweloperów przez cały proces tworzenia oprogramowania. Regulatorzy finansowi nie akceptują zewnętrznych audytów finansowych bez dostępu do ksiąg, próbnych transakcji lub ludzi wykonujących kontrole. Przemysł i rządy muszą wymagać tego samego standardu przejrzystości w dziedzinie inżynierii oprogramowania.
 
-We strongly encourage the use of security tools within the development process itself. DAST and SAST tools can be used continuously by the build pipeline to find easy to find security issues that should never be present.
+Zdecydowanie zachęcamy do korzystania z narzędzi bezpieczeństwa w samym procesie tworzenia oprogramowania. Narzędzia DAST i SAST mogą być stosowane ciągle przez proces budowania (build pipeline), aby znaleźć łatwe do zdiagnozowania problemy bezpieczeństwa, które nigdy nie powinny występować.
 
-Automated tools and online scans are unable to complete more than half of the ASVS without human assistance. If comprehensive test automation for each build is required, then a combination of custom unit and integration tests, along with build initiated online scans are used. Business logic flaws and access control testing is only possible using human assistance. These should be turned into unit and integration tests.
+Automatyczne narzędzia i skany online nie są w stanie pokryć więcej niż połowy wymagań ASVS bez pomocy ludzkiej. Jeśli wymagane jest kompleksowe automatyzowanie testów dla każdej kompilacji, wtedy używa się kombinacji niestandardowych testów jednostkowych i integracyjnych, wraz z inicjowaniem skanów online w procesie budowania. Testowanie błędów biznesowych i kontrola dostępu jest możliwa tylko przy pomocy ludzkiej. Należy je zamienić na testy jednostkowe i integracyjne.
 
-## How to use this standard
+## Jak używać standardu
 
-One of the best ways to use the Application Security Verification Standard is to use it as a blueprint to create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
+Jednym z najlepszych sposobów wykorzystania Standardu Weryfikacji Bezpieczeństwa Aplikacji jest użycie go jako szablonu do stworzenia Listy Kontrolnej Bezpiecznego Kodowania, specyficznej dla Twojej aplikacji, platformy lub organizacji. Dostosowanie ASVS do Twojego przypadku użycia zwiększy skupienie na wymaganiach bezpieczeństwa, które są najważniejsze dla Twoich projektów i środowiska.
 
-### Level 1 - First steps, automated, or whole of portfolio view
+### Poziom 1 - Pierwsze kroki, zautomatyzowane lub widok całego portfela
 
-An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists.
+Aplikacja otrzymuje poziom ASVS Level 1, jeśli skutecznie obroni się przed podatnościami bezpieczeństwa aplikacji, które są łatwe do odkrycia i uwzględnione w `OWASP Top 10` oraz innych podobnych listach kontrolnych.
 
-Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications.
+Poziom 1 to absolutne minimum, do którego powinny dążyć wszystkie aplikacje. Jest również przydatny jako pierwszy krok w wieloetapowym procesie lub gdy aplikacje nie przechowują ani nie obsługują wrażliwych danych i dlatego nie wymagają bardziej rygorystycznych kontroli poziomu 2 lub 3. Kontrole poziomu 1 mogą być sprawdzane automatycznie przez narzędzia lub po prostu ręcznie bez dostępu do kodu źródłowego. Uważamy, że poziom 1 jest minimalnym wymaganym dla wszystkich aplikacji.
 
-Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.
+Zagrożenia dla aplikacji będą prawdopodobnie pochodzić od atakujących, którzy używają prostych i wymagających niskiego wysiłku technik, aby zidentyfikować łatwe do znalezienia i łatwe do wykorzystania podatności bezpieczeństwa. W przeciwieństwie do zdeterminowanego atakującego, który poświęci dużo wysiłku i energii, aby celowo zaatakować aplikację. Jeśli Twoja aplikacja przetwarza poufne informacje, które mają wysoką wartość, rzadko chcesz zatrzymać się na przeglądzie poziomu 1.
 
-### Level 2 - Most applications
+### Poziom 2 - Większość aplikacji
 
-An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.
+Aplikacja otrzymuje ASVS Level 2, jeśli skutecznie broni się przed większością dzisiejszych zagrożeń związanych z oprogramowaniem.
 
-Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks.
+Poziom 2 zapewnia, że kontrole bezpieczeństwa są na swoim miejscu, skuteczne i stosowane w aplikacji. Zwykle jest on odpowiedni dla aplikacji, które obsługują znaczące transakcje między firmami, w tym tych, które przetwarzają informacje medyczne, wdrażają funkcje biznesowe lub wrażliwe, przetwarzają inne wrażliwe aktywa lub dla branż, gdzie integralność jest kluczowym elementem do ochrony ich biznesu, takich jak branża gier, aby przeciwdziałać oszustom i łamaniom gier.
 
-Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+Zagrożenia dla aplikacji na poziomie 2 zwykle będą pochodzić od zdolnych i zmotywowanych atakujących, którzy skupiają się na konkretnych celach, używając narzędzi i technik, które są często praktykowane i skuteczne w odkrywaniu i wykorzystywaniu słabości w aplikacjach.
 
-### Level 3 - High value, high assurance, or high safety
+### Level 3 - Wysoka wartość, wysokie wymaganie bezpieczeństwa
 
-ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc.
+Poziom ASVS 3 to najwyższy poziom weryfikacji w ramach `ASVS`. Ten poziom jest zwykle przeznaczony dla aplikacji wymagających znacznego poziomu weryfikacji bezpieczeństwa, takich jak te znajdujące się w obszarach wojskowości, zdrowia i bezpieczeństwa, krytycznej infrastruktury itp.
 
-Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
+Organizacje mogą wymagać poziomu ASVS Level 3 dla aplikacji wykonujących krytyczne funkcje, w których awaria może znacząco wpłynąć na funkcjonowanie organizacji, a nawet zdolność do jej przetrwania. Poniżej przedstawiono przykładowe wytyczne dotyczące stosowania poziomu ASVS 3. Aplikacja osiąga poziom ASVS 3 (lub Poziom Zaawansowany), jeśli skutecznie obroni się przed zaawansowanymi podatnościami bezpieczeństwa aplikacji i jednocześnie wykazuje zasady dobrego projektowania zabezpieczeń.
 
-An application at ASVS Level 3 requires more in depth analysis of architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), authorization, and auditing (logging).
+Aplikacja na poziomie ASVS 3 wymaga bardziej szczegółowej analizy architektury, kodowania i testowania niż wszystkie inne poziomy. Bezpieczna aplikacja jest w znaczący sposób modularna (aby ułatwić odporność, skalowalność i przede wszystkim wyznaczyć warstwy zabezpieczeń), a każdy moduł (oddzielony przez połączenie sieciowe i/lub fizyczną instancję) dba o swoje własne odpowiedzialności i zabezpieczenia (obrona w głąb), które muszą być właściwie udokumentowane. Odpowiedzialności obejmują kontrole zapewniające poufność (np. szyfrowanie), integralność (np. transakcje, walidacja danych wejściowych), dostępność (np. eleganckie radzenie sobie z obciążeniem), uwierzytelnienie (w tym między systemami), autoryzację i audytowanie (logowanie).
 
-## Applying ASVS in Practice
+## Stosowanie ASVS w praktyce
 
-Different threats have different motivations. Some industries have unique information and technology assets and domain specific regulatory compliance requirements.
+Różne zagrożenia są spowodowane różnymi motywacjami. Niektóre branże posiadają unikalne aktywa informacyjne i technologiczne oraz specyficzne wymagania regulacyjne związane z daną dziedziną.
 
-Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
+Zachęcamy Organizacje do szczegółowej analizy ich unikalnych cech ryzyka, opartych na charakterze ich działalności i na podstawie tych czynników określenie odpowiedniego poziomu ASVS.
 
-## How to Reference ASVS Requirements
+## Jak odnosić się do wymagań ASVS
 
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
-- The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architecture` section of the `Architecture` chapter.
-- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.3 of this standard is:
+Każde wymaganie posiada identyfikator w formacie `<rozdział>.<sekcja>.<wymaganie>`, gdzie każdy element to liczba, na przykład: `1.11.3`.
+- Wartość `<chapter>` odpowiada rozdziałowi, z którego pochodzi wymaganie, na przykład: wszystkie wymagania w formacie `1.#.#` pochodzą z rozdziału Architektura.
+- Wartość `<sekcja>` odpowiada sekcji w ramach danego rozdziału, w którym pojawia się wymaganie, na przykład: wszystkie wymagania `1.11.#` znajdują się w sekcji Business Logic Architecture w rozdziale Architektura.
+- Wartość `<wymaganie>` identyfikuje konkretne wymaganie w rozdziale i sekcji. Na przykład, `1.11.3`, które w wersji 4.0.3 tego standardu brzmmi: 
 
-> Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
+> Zweryfikuj, że wszystkie ważne przepływy logiki biznesowej, w tym uwierzytelnianie, zarządzanie sesją i kontrola dostępu są bezpieczne dla wątków i odporne na wyścigi czasowe typu time-of-check i time-of-use.
 
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.3-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architecture' section of the 'Architecture' chapter from version 4.0.3. (This could be summarized as `v<version>-<requirement_identifier>`.)
+Identyfikatory mogą ulec zmianie między wersjami standardu, dlatego preferowane jest, aby inne dokumenty, raporty lub narzędzia używały formatu: `v<wersja>-<rozdział>.<sekcja>.<wymaganie>`, gdzie 'wersja' to oznaczenie wersji ASVS. Na przykład: `v4.0.3-1.11.3` oznaczałoby specyficzne wymaganie numer 3 w sekcji 'Business Logic Architecture' rozdziału 'Architecture' z wersji `4.0.3`. (Można to streścić jako `v<wersja>-<identyfikator_wymagania>`.)
 
-Note: The `v` preceding the version portion is to be lower case.
+Uwaga: Litera "v" przed numerem wersji powinna być pisana małą literą.
 
-If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+Jeśli identyfikatory są używane bez uwzględniania elementu v<wersja>, to powinno się przyjąć, że odnoszą się do najnowszej treści Standardu Weryfikacji Bezpieczeństwa Aplikacji. Oczywiście, w miarę rozwoju i zmian standardu, może to stanowić problem, dlatego autorzy publikacji lub deweloperzy powinni uwzględniać element wersji.
 
-ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+Listy wymagań ASVS są udostępniane w formacie CSV, JSON i innych, które mogą być przydatne do odwoływania się do nich lub do użytku programistycznego.

@@ -30,7 +30,7 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 ## Other Contributors and Reviewers
 
 |                     |                    |                   |                  |                   |
-| ------------------- | ------------------ | ----------------- | ---------------- | ----------------- |
+|---------------------|--------------------|-------------------|------------------|-------------------|
 | Aaron Guzman        | Alina Vasiljeva    | Andreas Kurtz     | Anthony Weems    | Barbara Schachner |
 | Christian Heinrich  | Christopher Loessl | Clément Notin     | Dan Cornell      | Daniël Geerts     |
 | David Clarke        | David Johansson    | David Quisenberry | Elie Saad        | Erlend Oftedal    |
