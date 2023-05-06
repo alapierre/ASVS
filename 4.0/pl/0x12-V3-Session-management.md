@@ -1,94 +1,94 @@
-# V3 Session Management
+# V3 Zarządzanie sesją
 
-## Control Objective
+## Cel kontrolny
 
-One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.
+Jednym z podstawowych składników dowolnej aplikacji internetowej lub stanowego interfejsu API jest mechanizm, za pomocą którego kontroluje i utrzymuje stan interakcji użytkownika lub urządzenia. Zarządzanie sesją zmienia protokół bezstanowy na stanowy, co ma kluczowe znaczenie dla rozróżniania różnych użytkowników lub urządzeń.
 
-Ensure that a verified application satisfies the following high-level session management requirements:
+Upewnij się, że zweryfikowana aplikacja spełnia następujące ogólne wymagania dotyczące zarządzania sesją:
 
-* Sessions are unique to each individual and cannot be guessed or shared.
-* Sessions are invalidated when no longer required and timed out during periods of inactivity.
+* Sesje są unikalne dla każdej osoby i nie można ich odgadnąć ani udostępnić.
+* Sesje są unieważniane, gdy nie są już potrzebne i wygasają w okresach bezczynności.
 
-As previously noted, these requirements have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
+Jak wcześniej zauważono, wymagania te zostały dostosowane do zgodnego podzbioru wybranych kontroli NIST 800-63b, koncentrując się na typowych zagrożeniach i często wykorzystywanych słabościach uwierzytelniania. Poprzednie wymagania weryfikacyjne zostały wycofane, usunięte lub w większości przypadków dostosowane, aby były ściśle zgodne z intencją obowiązkowych wymagań [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-## Security Verification Requirements
+## Wymagania dotyczące weryfikacji bezpieczeństwa
 
-## V3.1 Fundamental Session Management Security
+## V3.1 Podstawowe zabezpieczenia zarządzania sesją
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
+| # | Opis                                                                             | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: |:---------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
+| **3.1.1** | Sprawdź, czy aplikacja nigdy nie ujawnia tokenów sesji w parametrach adresu URL. | ✓ | ✓ | ✓ | 598 | |
 
-## V3.2 Session Binding
+## V3.2 Wiązanie sesji
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Verify that session tokens possess at least 64 bits of entropy. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
-| **3.2.3** | Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies (see section 3.4) or HTML 5 session storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
-| **3.2.4** | Verify that session tokens are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
+| # | Opis                                                                                                                                                                                                                                                             | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
+| **3.2.1** | Sprawdź, czy aplikacja generuje nowy token sesji podczas uwierzytelniania użytkownika. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                   | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.2** | Sprawdź, czy tokeny sesji mają co najmniej 64 bity entropii. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                             | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.3** | Sprawdź, czy aplikacja przechowuje tokeny sesji w przeglądarce tylko przy użyciu bezpiecznych metod, takich jak odpowiednio zabezpieczone pliki cookie (patrz sekcja 3.4) lub przechowuje dane sesji w pamięci podręcznej przeglądarki (HTML 5 session storage). | ✓ | ✓ | ✓ | 539 | 7.1 |
+| **3.2.4** | Sprawdź, czy tokeny sesji są generowane przy użyciu zatwierdzonych algorytmów kryptograficznych. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                        | | ✓ | ✓ | 331 | 7.1 |
 
-TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
+TLS lub inny bezpieczny kanał transportowy jest obowiązkowy do zarządzania sesją. Jest to omówione w rozdziale poświęconym bezpieczeństwu komunikacji.
 
-## V3.3 Session Termination
+## V3.3 Zakończenie sesji
 
-Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based around the application's risk, the NIST value should be the upper bounds of session idle timeouts.
+Limity czasu sesji zostały dostosowane do NIST 800-63, który zezwala na znacznie dłuższe limity czasu sesji niż tradycyjnie dozwolone przez standardy bezpieczeństwa. Organizacje powinny przejrzeć poniższą tabelę i jeśli w oparciu o ryzyko związane z aplikacją wymagany jest dłuższy limit czasu, wartość NIST powinna być górną granicą limitów czasu bezczynności sesji.
 
-L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session.
+L1 w tym kontekście to IAL1/AAL1, L2 to IAL2/AAL3, L3 to IAL3/AAL3. W przypadku IAL2/AAL2 i IAL3/AAL3 krótszy limit czasu bezczynności to dolna granica czasu bezczynności dla wylogowania lub ponownego uwierzytelnienia w celu wznowienia sesji.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
-| **3.3.3** | Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties. | | ✓ | ✓ | 613 | |
-| **3.3.4** | Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices. | | ✓ | ✓ | 613 | 7.1 |
+| # | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
+| **3.3.1** | Sprawdź, czy wylogowanie i wygaśnięcie unieważniają token sesji, tak aby przycisk Wstecz lub wejście na inną stronę wymagającej sesji nie wznawiało uwierzytelnionej sesji. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                        | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.2** | Jeśli mechanizmy autoryzujące pozwalają użytkownikom pozostać zalogowanymi, sprawdź, czy ponowne uwierzytelnianie odbywa się okresowo, zarówno podczas aktywnego używania, jak i po okresie bezczynności. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                          | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
+| **3.3.3** | Sprawdź, czy aplikacja umożliwia zakończenie wszystkich innych aktywnych sesji po pomyślnej zmianie hasła (w tym zmianie poprzez zresetowanie/odzyskanie hasła) i czy jest to skuteczne w całej aplikacji, logowaniu federacyjnym (Federated identity) (jeśli istnieje) i wszystkich jednostkach ufających.                                                                                                                                                                                                                                                                                | | ✓ | ✓ | 613 | |
+| **3.3.4** | Sprawdź, czy użytkownicy mogą przeglądać i (po ponownym wprowadzeniu danych logowania) wylogować się z dowolnej lub wszystkich aktualnie aktywnych sesji i urządzeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                  | | ✓ | ✓ | 613 | 7.1 |
 
-## V3.4 Cookie-based Session Management
+## V3.4 Zarządzanie sesją oparte na plikach cookie
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verify that if the application is published under a domain name with other applications that set or use session cookies that might disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| # | Opis                                                                                                                                                                                                                                                                                                                                                                      | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
+| **3.4.1** | Sprawdź, czy tokeny sesji oparte na plikach cookie mają ustawiony atrybut 'Secure'. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                               | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | Sprawdź, czy tokeny sesji oparte na plikach cookie mają ustawiony atrybut 'HttpOnly'. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                             | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.3** | Sprawdź, czy tokeny sesji oparte na plikach cookie wykorzystują atrybut 'SameSite', aby ograniczyć narażenie na ataki polegające na fałszowaniu żądań między witrynami. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                            | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.4** | Sprawdź, czy tokeny sesji oparte na plikach cookie używają prefiksu "__Host-", aby pliki cookie były wysyłane tylko do hosta, który początkowo ustawił plik cookie.                                                                                                                                                                                                                                      | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.5** | Sprawdź, czy jeśli aplikacja jest opublikowana pod nazwą domeny wraz z innymi aplikacjami, które ustawiają lub używają sesyjnych plików cookie, które mogą ujawniać sesyjne pliki cookie, ustaw atrybut ścieżki w tokenach sesji opartych na plikach cookie, używając możliwie najdokładniejszej ścieżki. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                      | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
-## V3.5 Token-based Session Management
+## V3.5 Zarządzanie sesją oparte na tokenach
 
-Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.
+Zarządzanie sesjami w oparciu o tokeny obejmuje klucze JWT, OAuth, SAML i API. Spośród nich klucze API są znane jako słabe i nie powinny być używane w nowym kodzie.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
-| **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
-| **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. | | ✓ | ✓ | 345 | |
+| # | Opis                                                                                                                                                                                                                                                                                        | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
+| **3.5.1** | Sprawdź, czy aplikacja umożliwia użytkownikom odwoływanie tokenów OAuth, które tworzą relacje zaufania z połączonymi aplikacjami.                                                                                                                                                           | | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.2** | Sprawdź, czy aplikacja używa tokenów sesji, a nie statycznych sekretów API i kluczy, z wyjątkiem starszych implementacji.                                                                                                                                                                   | | ✓ | ✓ | 798 | |
+| **3.5.3** | Sprawdź, czy bezstanowe tokeny sesji używają podpisów cyfrowych, szyfrowania i innych środków zaradczych w celu ochrony przed manipulacją (tampering), otaczaniem (enveloping), powtarzaniem (replay), szyfrowaniem zerowym (null cipher) i atakami polegającymi na podstawieniu klucza (key substitution). | | ✓ | ✓ | 345 | |
 
-## V3.6 Federated Re-authentication
+## V3.6 Federacyjne ponowne uwierzytelnianie
 
-This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
-
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.6.1** | Verify that Relying Parties (RPs) specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the user if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
-| **3.6.2** | Verify that Credential Service Providers (CSPs) inform Relying Parties (RPs) of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613 | 7.2.1 |
-
-## V3.7 Defenses Against Session Management Exploits
-
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
-
-### Description of the half-open Attack
-
-In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
-
-Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enroll a new MFA device, reveal or change API keys, and so on.
+Ta sekcja dotyczy osób piszących kod strony uzależnionej (RP) lub dostawcy usług uwierzytelniających (CSP). Jeśli polegasz na kodzie implementującym te funkcje, upewnij się, że te problemy są obsługiwane poprawnie
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.7.1** | Verify the application ensures a full, valid login session or requires re-authentication or secondary verification before allowing any sensitive transactions or account modifications. | ✓ | ✓ | ✓ | 306 | |
+| **3.6.1** | Sprawdź, czy strony ufające (RP) określają maksymalny czas uwierzytelniania dostawców usług uwierzytelniających (CSP) i czy dostawcy CSP ponownie uwierzytelniają użytkownika, jeśli nie użyli sesji w tym okresie. | | | ✓ | 613 | 7.2.1 |
+| **3.6.2** |Sprawdź, czy dostawcy usług uwierzytelniających (CSP) informują strony ufające (RP) o ostatnim zdarzeniu uwierzytelniania, aby umożliwić RP określenie, czy muszą ponownie uwierzytelnić użytkownika. | | | ✓ | 613 | 7.2.1 |
 
-## References
+## V3.7 Ochrona przed exploitami związanymi z zarządzaniem sesją
 
-For more information, see also:
+Istnieje niewielka liczba ataków związanych z zarządzaniem sesjami, niektóre związane z wrażeniami użytkownika (UX) sesji. Wcześniej, w oparciu o wymagania ISO 27002, ASVS wymagał blokowania wielu jednoczesnych sesji. Blokowanie jednoczesnych sesji nie jest już właściwe, nie tylko dlatego, że współcześni użytkownicy mają wiele urządzeń lub aplikacja jest API bez sesji przeglądarki, ale w większości tych implementacji wygrywa ostatni uwierzytelniający, którym często jest atakujący. Ta sekcja zawiera wiodące wskazówki dotyczące odstraszania, opóźniania i wykrywania ataków zarządzania sesją przy użyciu kodu.
+
+### Opis ataku półotwartego
+
+Na początku 2018 r. kilka instytucji finansowych zostało narażonych na szwank przy użyciu tego, co atakujący nazwali 'atakami półotwartymi'. Termin ten zakorzenił się w branży. Napastnicy uderzyli w wiele instytucji z różnymi zastrzeżonymi bazami kodu i rzeczywiście wydaje się, że w ramach tych samych instytucji istnieją różne bazy kodu. Atak półotwarty wykorzystuje lukę wzorca projektowego powszechnie występującą w wielu istniejących systemach uwierzytelniania, zarządzania sesjami i kontroli dostępu
+
+Atakujący rozpoczynają atak półotwarty, próbując zablokować, zresetować lub odzyskać dane uwierzytelniające. Popularny wzorzec projektowy zarządzania sesją ponownie wykorzystuje obiekty/modele sesji profilu użytkownika między kodem nieuwierzytelnionym, częściowo uwierzytelnionym (resetowanie hasła, zapomniana nazwa użytkownika) i w pełni uwierzytelnionym. Ten wzorzec projektowy wypełnia prawidłowy obiekt sesji lub token zawierający profil ofiary, w tym skróty haseł i role. Jeśli kontrole kontroli dostępu w kontrolerach lub routerach nie zweryfikują poprawnie, czy użytkownik jest w pełni zalogowany, atakujący będzie mógł działać jako użytkownik. Ataki mogą obejmować zmianę hasła użytkownika na znaną wartość, aktualizację adresu e-mail w celu wykonania prawidłowego resetowania hasła, wyłączenie uwierzytelniania wieloskładnikowego lub zarejestrowanie nowego urządzenia MFA, ujawnienie lub zmianę kluczy API i tak dalej.
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **3.7.1** | Sprawdź, czy aplikacja zapewnia pełną, ważną sesję logowania lub wymaga ponownego uwierzytelnienia lub dodatkowej weryfikacji przed zezwoleniem na jakiekolwiek poufne transakcje lub modyfikacje konta. | ✓ | ✓ | ✓ | 306 | |
+
+## Bibliografia
+
+Aby uzyskać więcej informacji, zobacz także:
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/README.html)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
