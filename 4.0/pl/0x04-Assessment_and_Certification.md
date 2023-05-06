@@ -1,67 +1,67 @@
-# Assessment and Certification
+# Ocena i Certyfikacja
 
-## OWASP's Stance on ASVS Certifications and Trust Marks
+## Stanowisko OWASP w sprawie certyfikacji ASVS i znaków zaufania
 
-OWASP, as a vendor-neutral not-for-profit organization, does not currently certify any vendors, verifiers or software.
+OWASP, jako neutralna wobec dostawców organizacja non-profit, obecnie nie certyfikuje żadnych dostawców, weryfikatorów lub oprogramowania.
 
-All such assurance assertions, trust marks, or certifications are not officially vetted, registered, or certified by OWASP, so an organization relying upon such a view needs to be cautious of the trust placed in any third party or trust mark claiming ASVS certification.
+Wszystkie takie zapewnienia, znaki zaufania lub certyfikaty nie są oficjalnie zweryfikowane, zarejestrowane ani nie są certyfikowane przez OWASP, więc organizacja polegająca na takiej opinii musi być ostrożna w zaufaniu jakimkolwiek podmiotom trzecim lub znakom zaufania twierdzącym o certyfikacji `ASVS`.
 
-This should not inhibit organizations from offering such assurance services, as long as they do not claim official OWASP certification.
+Nie powinno to jednak hamować organizacji w oferowaniu takich usług zapewniających o zgodności z `ASVS`, o ile nie twierdzą, że posiadają oficjalny certyfikat OWASP.
 
-## Guidance for Certifying Organizations
+## Wskazówki dla organizacji certyfikujących
 
-The Application Security Verification Standard can be used as an open book verification of the application, including open and unfettered access to key resources such as architects and developers, project documentation, source code, authenticated access to test systems (including access to one or more accounts in each role), particularly for L2 and L3 verifications.
+Standard Weryfikacji Bezpieczeństwa Aplikacji może być wykorzystany jako weryfikacja aplikacji na zasadzie "otwartej książki", obejmująca swobodny dostęp do kluczowych zasobów, takich jak architekci i programiści, dokumentacja projektowa, kod źródłowy, uwierzytelniony dostęp do systemów testowych (w tym dostęp do jednego lub więcej kont w każdej roli), zwłaszcza dla weryfikacji L2 i L3.
 
-Historically, penetration testing and secure code reviews have included issues “by exception” - that is only failed tests appear in the final report. A certifying organization must include in any report the scope of the verification (particularly if a key component is out of scope, such as SSO authentication), a summary of verification findings, including passed and failed tests, with clear indications of how to resolve the failed tests.
+Historycznie, testowanie penetracyjne i przeglądy bezpieczeństwa kodu obejmowały problemy "wyjątkowe" - to znaczy tylko niezdane testy pojawiły się w raporcie końcowym. Organizacja certyfikująca musi uwzględnić w każdym raporcie zakres weryfikacji (zwłaszcza jeśli kluczowy komponent jest poza zakresem, np. uwierzytelnianie SSO), podsumowanie wyników weryfikacji, w tym zdane i niezdane testy, z jasnymi wskazówkami dotyczącymi sposobów rozwiązania podatności bezpieczeństwa wynikających z niezdanych testów.
 
-Certain verification requirements may not be applicable to the application under test. For example, if you provide a stateless service layer API without a client implementation to your customers, many of the requirements in V3 Session Management are not directly applicable. In such cases, a certifying organization may still claim full ASVS compliance, but must clearly indicate in any report a reason for non-applicability of such excluded verification requirements.
+Niektóre wymagania mogą nie być zastosowane do testowanej aplikacji. Na przykład, jeśli udostępniasz bezstanową warstwę API swoim klientom, wiele wymagań z sekcji 'V3 Zarządzanie Sesją' nie ma zastosowania. W takich przypadkach organizacja certyfikująca może wciąż potwierdzić pełne spełnienie wymagań ASVS, ale musi jasno wskazać w każdym raporcie powód niestosowania takich wykluczonych wymagań.
 
-Keeping detailed work papers, screenshots or movies, scripts to reliably and repeatedly exploit an issue, and electronic records of testing, such as intercepting proxy logs and associated notes such as a cleanup list, is considered standard industry practice and can be really useful as proofs of the findings for the most doubtful developers. It is not sufficient to simply run a tool and report on the failures; this does not (at all) provide sufficient evidence that all issues at a certifying level have been tested and tested thoroughly. In case of dispute, there should be sufficient assurance evidence to demonstrate each and every verified requirement has indeed been tested.
+Utrzymywanie szczegółowych dokumentów roboczych, zrzutów ekranów lub filmów, skryptów służących do niezawodnego i powtarzalnego wykorzystania problemu oraz elektronicznych rejestrów testów, takich jak logi proxy i związane z nimi notatki, takie jak lista czyszczenia (cleanup list), jest uważane za standardową praktykę w branży i może być naprawdę przydatne jako dowody dla najbardziej niedowierzających programistów. Nie wystarczy po prostu uruchomić narzędzia i zgłosić niepowodzenia; to nie zapewnia (w ogóle) wystarczających dowodów na to, że wszystkie problemy na poziomie certyfikacji zostały przetestowane i dokładnie przetestowane. W przypadku sporu powinny istnieć wystarczające dowody zapewniające potwierdzenie, że każde wymaganie zostało rzeczywiście przetestowane.
 
-### Testing Method
+### Metody Testowania
 
-Certifying organizations are free to choose the appropriate testing method(s), but should indicate them in a report.
+Organizacje certyfikujące mają pełną swobodę wyboru odpowiedniej metody lub metod testowania, ale powinny je wskazać w raporcie.
 
-Depending on the application under test and the verification requirement, different testing methods may be used to gain similar confidence in the results. For example, validating the effectiveness of an application's input verification mechanisms may either be analysed with a manual penetration test or by means of source code analyses.
+W zależności od testowanej aplikacji i wymagań weryfikacji mogą być wykorzystane różne metody testowania, w celu uzyskania podobnych wyników. Na przykład, sprawdzenie skuteczności mechanizmów weryfikacji wejściowej aplikacji można przeprowadzić przez manualny test penetracyjny lub poprzez analizę kodu źródłowego.
 
-#### The Role of Automated Security Testing Tools
+#### Rola narzędzi do automatycznych testów bezpieczeństwa
 
-The use of automated penetration testing tools is encouraged to provide as much coverage as possible.
+Używanie narzędzi do automatycznych testów penetracyjnych jest pożądane, aby zapewnić jak największy zasięg testów.
 
-It is not possible to fully complete ASVS verification using automated penetration testing tools alone. Whilst a large majority of requirements in L1 can be performed using automated tests, the overall majority of requirements are not amenable to automated penetration testing.
+Nie jest możliwe w pełni ukończenie weryfikacji ASVS przy użyciu wyłącznie narzędzi do automatycznych testów penetracyjnych. Podczas gdy większość wymagań poziomu L1 może być wykonywana przy użyciu automatycznych testów, ogromna część pozostałych wymagań nie jest odpowiednia do testów automatycznych.
 
-Please note that the lines between automated and manual testing have blurred as the application security industry matures. Automated tools are often manually tuned by experts and manual testers often leverage a wide variety of automated tools.
+Należy zauważyć, że granice między testowaniem automatycznym i manualnym zacierają się w miarę dojrzewania branży bezpieczeństwa aplikacji. Narzędzia automatyczne są często ręcznie dostrojone przez ekspertów, a testujący ręcznie często korzystają z różnorodnych narzędzi automatycznych.
 
-#### The Role of Penetration Testing
+#### Rola testów penetracyjnych
 
-In version 4.0, we decided to make L1 completely penetration testable without access to source code, documentation, or developers. Two logging items, which are required to comply with OWASP Top 10 2017 A10, will require interviews, screenshots or other evidence collection, just as they do in the OWASP Top 10 2017. However, testing without access to necessary information is not an ideal method of security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe. 
+W wersji 4.0 postanowiliśmy, że poziom L1 będzie w pełni testowalny poprzez testy penetracyjne bez dostępu do kodu źródłowego, dokumentacji lub programistów. Dwa elementy, wymagane do spełnienia `OWASP Top 10 2017 A10`, będą wymagały wywiadów, zrzutów ekranu lub innych dowodów. Jednakże, testowanie bez dostępu do niezbędnych informacji nie jest idealną metodą weryfikacji bezpieczeństwa, ponieważ pomija możliwość przejrzenia źródła, zidentyfikowania zagrożeń i brakujących kontroli, oraz przeprowadzenia znacznie bardziej szczegółowego testu w krótszym czasie.
 
-Where possible, access to developers, documentation, code, and access to a test application with non-production data, is required when performing a L2 or L3 Assessment. Penetration testing done at these levels requires this level of access, which we call "hybrid reviews" or "hybrid penetration tests". 
+Tam, gdzie to możliwe, przy weryfikacji L2 lub L3 wymagany jest dostęp do programistów, dokumentacji, kodu oraz dostęp do aplikacji testowej z fikcyjnymi danymi na środowiskach testowych Testowanie penetracyjne przeprowadzane na tych poziomach wymaga tego rodzaju dostępu, nazywamy je "hybrydowymi przeglądami" lub "hybrydowymi testami penetracyjnymi".
 
-## Other uses for the ASVS
+## Inne przypadki użycia ASVS
 
-Aside from being used to assess the security of an application, we have identified a number of other potential uses for the ASVS.
+Oprócz wykorzystania do oceny bezpieczeństwa aplikacji zidentyfikowaliśmy kilka innych potencjalnych zastosowań `ASVS`.
 
-### As Detailed Security Architecture Guidance
+### Szczegółowe wytyczne architektury bezpieczeństwa
 
-One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The Sherwood Applied Business Security Architecture (SABSA) is missing a great deal of information that is necessary to complete a thorough application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
+Jednym z bardziej powszechnych zastosowań Standardu Weryfikacji Bezpieczeństwa Aplikacji jest wykorzystanie go jako zasobu dla architektów bezpieczeństwa. Sherwood Applied Business Security Architecture (SABSA) nie zawiera wielu informacji, które są niezbędne do przeprowadzenia szczegółowej analizy architektury bezpieczeństwa aplikacji. ASVS może być wykorzystany do uzupełnienia tych luk, pozwalając architektom bezpieczeństwa na wybór lepszych kontroli dla powszechnych problemów, takich jak wzorce ochrony danych i strategie walidacji wejść.
 
-### As a Replacement for Off-the-shelf Secure Coding Checklists
+### Jako zamiennik gotowych list kontrolnych dotyczących bezpiecznego programowania
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain specific way. We encourage this type of forking as long as traceability is maintained, so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
+Wiele organizacji może skorzystać z przyjęcia `ASVS`, wybierając jeden z trzech poziomów, lub poprzez skopiowanie `ASVS` i zmianę wymagań dla każdego poziomu ryzyka aplikacji w sposób specyficzny dla danej domeny. Zachęcamy do tego typu kopiowania, o ile zachowane jest odniesienie do oryginalnej numeracji, tak aby jeśli aplikacja przeszła wymaganie 4.1, oznaczało to to samo dla skopiowanych wersji, jak i do standardu, w miarę jego rozwoju.
 
-### As a Guide for Automated Unit and Integration Tests
+### Jako przewodnik dla automatycznych testów jednostkowych i integracyjnych
 
-The ASVS is designed to be highly testable, with the sole exception of architectural and malicious code requirements. By building unit and integration tests that test for specific and relevant fuzz and abuse cases, the application becomes nearly self-verifying with each and every build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+`ASVS` jest zaprojektowany tak, aby był łatwy do przetestowania, z jedynym wyjątkiem wymagań architektonicznych i dotyczących złośliwego kodu. Poprzez tworzenie testów jednostkowych i integracyjnych, które testują konkretne i istotne przypadki fuzzingowe i nadużycia, aplikacja staje się praktycznie samoweryfikująca przy każdej kompilacji. Na przykład, do zestawu testów dla kontrolera logowania można dodać dodatkowe testy, które sprawdzają parametr nazwy użytkownika pod kątem popularnych domyślnych nazw użytkowników, wyliczanie kont, atak brute-force, wstrzykiwanie LDAP i SQL, oraz XSS. Podobnie, test dla parametru hasła powinny obejmować popularne hasła, długość hasła, wstrzykiwanie znaku null, usunięcie parametru, XSS i wiele innych.
 
-### For Secure Development Training
+### Do szkoleń z bezpiecznego wytwarzania oprogramowania
 
-ASVS can also be used to define characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the proactive controls found in the ASVS, rather than the Top 10 negative things not to do.
+`ASVS` może również być wykorzystany do określenia cech bezpiecznego oprogramowania. Wiele kursów "bezpiecznego programowania" to po prostu kursy etycznego hakerstwa z lekkim akcentem na porady dotyczące programowania. To może niekoniecznie pomóc programistom w pisaniu bardziej bezpiecznego kodu. Zamiast tego, kursy dotyczące bezpiecznego rozwoju oprogramowania mogą wykorzystać `ASVS`, skupiając się na proaktywnych kontrolach znajdujących się w `ASVS`, zamiast na Top 10 negatywnych rzeczy, których należy unikać.
 
-### As a Driver for Agile Application Security
+### Jako narzędzie do prowadzenia zwinnego bezpieczeństwa aplikacji
 
-ASVS can be used in an agile development process as a framework to define specific tasks that need to be implemented by the team to have a secure product. One approach might be: Starting with Level 1, verify the specific application or system according to ASVS requirements for the specified level, find what controls are missing and raise specific tickets/tasks in the backlog. This helps with prioritization of specific tasks (or grooming), and makes security visible in the agile process. This can also be used to prioritize auditing and reviewing tasks in the organization, where a specific ASVS requirement can be a driver for review, refactor or auditing for a specific team member and visible as "debt" in the backlog that needs to be eventually done.
+`ASVS` może być wykorzystywany w procesie rozwoju zwinnego jako ramy do określenia konkretnych zadań, które zespół musi zaimplementować, aby stworzyć bezpieczny produkt. Jednym z podejść może być: rozpoczęcie od poziomu 1, weryfikacja konkretnej aplikacji lub systemu zgodnie z wymaganiami `ASVS` dla określonego poziomu, znalezienie brakujących kontroli i utworzenie konkretnych zgłoszeń/zadań w backlogu. Pomaga to w priorytetyzacji konkretnych zadań (lub groomingu) oraz czyni bezpieczeństwo widocznym w procesie agile. Może to również służyć do priorytetyzacji zadań audytowych i przeglądowych w organizacji, gdzie konkretny wymóg `ASVS` może być driverem dla przeglądu, refaktoryzacji lub audytu dla określonego członka zespołu i być widoczny jako "dług technologiczny" w backlogu, który w końcu musi zostać spłacony.
 
-### As a Framework for Guiding the Procurement of Secure Software
+### Jako ramy do kierowania zakupem bezpiecznego oprogramowania
 
-ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X. This works well when combined with the OWASP Secure Software Contract Annex
+ASVS to świetna struktura, która pomaga w zakupie bezpiecznego oprogramowania lub usług niestandardowego rozwoju. Kupujący może po prostu postawić wymaganie, że oprogramowanie, które chcą nabyć, musi zostać opracowane na poziomie X według `ASVS`, i zażądać od sprzedawcy udowodnienia, że oprogramowanie spełnia wymagania `ASVS` na poziomie X. To działa dobrze, gdy jest połączone z OWASP Secure Software Contract Annex.
