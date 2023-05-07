@@ -1,43 +1,43 @@
-# V4 Access Control
+# V4 Kontrola Dostępu
 
-## Control Objective
+## Cele kontroli
 
-Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:
+Autoryzacja to koncepcja zezwalania na dostęp do zasobów tylko tym, którzy mogą z nich korzystać. Upewnij się, że zweryfikowana aplikacja spełnia następujące wymagania wysokiego poziomu:
 
-* Persons accessing resources hold valid credentials to do so.
-* Users are associated with a well-defined set of roles and privileges.
-* Role and permission metadata is protected from replay or tampering.
+* Osoby uzyskujące dostęp do zasobów posiadają ważne poświadczenia, aby to zrobić.
+* Użytkownicy są powiązani z dobrze zdefiniowanym zestawem ról i uprawnień.
+* Metadane roli i uprawnień są chronione przed ponownym odtworzeniem lub manipulacją.
 
-## Security Verification Requirements
+## Wymagania weryfikacji bezpieczeństwa
 
-## V4.1 General Access Control Design
+## V4.1 Ogólny projekt kontroli dostępu
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.1.1** | Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed. | ✓ | ✓ | ✓ | 602 |
-| **4.1.2** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 639 |
-| **4.1.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
-| **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
-| **4.1.5** | Verify that access controls fail securely including when an exception occurs. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
+| **4.1.1** | Sprawdź, czy aplikacja wymusza reguły kontroli dostępu w zaufanej warstwie usług, zwłaszcza jeśli kontrola dostępu po stronie klienta jest obecna i można ją ominąć.. | ✓ | ✓ | ✓ | 602 |
+| **4.1.2** | Zweryfikuj, czy użytkownicy końcowi nie mogą manipulować wszystkimi atrybutami użytkownika i danych oraz zasadami używanymi przez kontrolę dostępu, chyba że zostaną specjalnie upoważnieni. | ✓ | ✓ | ✓ | 639 |
+| **4.1.3** | Sprawdź, czy istnieje zasada najniższych uprawnień — użytkownicy powinni mieć dostęp tylko do funkcji, plików danych, adresów URL, kontrolerów, usług i innych zasobów, do których posiadają określone uprawnienia. Oznacza to ochronę przed fałszowaniem i podnoszeniem uprawnień. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
+| **4.1.4** | [USUNIĘTO, DUPLIKAT 4.1.3] | | | | |
+| **4.1.5** | Sprawdź, czy kontrola dostępu nie działa bezpiecznie, w tym w przypadku wystąpienia wyjątku. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
 
 ## V4.2 Operation Level Access Control
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.2.1** | Verify that sensitive data and APIs are protected against Insecure Direct Object Reference (IDOR) attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records. | ✓ | ✓ | ✓ | 639 |
-| **4.2.2** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect authenticated functionality, and effective anti-automation or anti-CSRF protects unauthenticated functionality. | ✓ | ✓ | ✓ | 352 |
+| **4.2.1** | Sprawdź, czy wrażliwe dane i interfejsy API są chronione przed atakami typu Insecure Direct Object Reference (IDOR), których celem jest tworzenie, odczytywanie, aktualizowanie i usuwanie rekordów, na przykład tworzenie lub aktualizowanie rekordu innej osoby, przeglądanie rekordów wszystkich osób lub usuwanie wszystkich rekordów. | ✓ | ✓ | ✓ | 639 |
+| **4.2.2** | Sprawdź, czy aplikacja lub platforma wymusza silny mechanizm ochrony przed CSRF w celu ochrony uwierzytelnionej funkcjonalności oraz czy skuteczna ochrona przed automatyzacją lub ochrona przed CSRF chroni nieuwierzytelnioną funkcjonalność. | ✓ | ✓ | ✓ | 352 |
 
 ## V4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.3.1** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 419 |
-| **4.3.2** | Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | 548 |
-| **4.3.3** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. | | ✓ | ✓ | 732 |
+| **4.3.1** | Sprawdź, czy interfejsy administracyjne używają odpowiedniego uwierzytelniania wieloskładnikowego, aby zapobiec nieautoryzowanemu użyciu. | ✓ | ✓ | ✓ | 419 |
+| **4.3.2** | Sprawdź, czy przeglądanie katalogów jest wyłączone, chyba że celowo tego chcesz. Ponadto aplikacje nie powinny umożliwiać wykrywania ani ujawniania metadanych plików lub katalogów, takich jak foldery Thumbs.db, .DS_Store, .git lub .svn. | ✓ | ✓ | ✓ | 548 |
+| **4.3.3** | Sprawdź, czy aplikacja ma dodatkowe uprawnienia (takie jak uwierzytelnianie podwyższające lub uwierzytelnianie adaptacyjne) dla systemów o niższej wartości i/lub podział obowiązków dla aplikacji o dużej wartości w celu egzekwowania kontroli przed oszustwami zgodnie z ryzykiem związanym z aplikacją i przeszłymi oszustwami.| | ✓ | ✓ | 732 |
 
-## References
+## Bibliografia
 
-For more information, see also:
+Aby uzyskać więcej informacji, zobacz także:
 
 * [OWASP Testing Guide 4.0: Authorization](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/05-Authorization_Testing/README.html)
 * [OWASP Cheat Sheet: Access Control](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html)
