@@ -1,16 +1,16 @@
 # Frontispiece
 
-## About the Standard
+## O standardzie
 
-The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
+Standard Weryfikacji Bezpieczeństwa Aplikacji (Application Security Verification Standard, ASVS) to lista wymagań dotyczących bezpieczeństwa aplikacji lub testów, które mogą być używane przez architektów, programistów, testerów, specjalistów ds. bezpieczeństwa, dostawców narzędzi oraz użytkowników do definiowania, tworzenia, testowania i weryfikowania bezpiecznych aplikacji.
 
-## Copyright and License
+## Prawa autorskie i licencja
 
-Version 4.0.3, October 2021
+Wersja 4.0.3, Październik 2021
 
 ![license](../images/license.png)
 
-Copyright © 2008-2021 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
+Copyright © 2008-2021 The OWASP Foundation. Ten dokument jest udostępniany na zasadach licencji [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). W przypadku ponownego użycia lub dystrybucji musisz jasno przedstawić innym warunki licencji tego dzieła.
 
 ## Project Leads
 
@@ -45,7 +45,14 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 | Vincent De Schutter | Mike Jang          |                   |                  |                   |
 
 
+## Polskie tłumaczenie
 
-If a credit is missing from the 4.0.3 credit list above, please log a ticket at GitHub to be recognized in future updates. 
+- Adrian Lapierre
+- Adam Szewczyk
+- Jan Sosna
+- Damian Lubawy
 
-The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
+
+Jeśli brakuje Twojego nazwiska na liście do wersji 4.0.3, proszę zgłoś błąd na GitHubie, aby zostać uwzględnionym w przyszłych aktualizacjach. 
+
+Standard Weryfikacji Bezpieczeństwa Aplikacji opiera się na osiągnięciach osób zaangażowanych w prace nad wersjami od ASVS 1.0 w 2008 roku do 3.0 w 2016 roku. Wiele elementów struktury i pozycji weryfikacji, które są obecne w ASVS do dziś, zostało pierwotnie napisanych przez Mike'a Boberskiego, Jeffa Williamsa i Dave'a Wichersa, ale w projekcie uczestniczyło znacznie więcej osób. Dziękujemy wszystkim tym, którzy byli wcześniej zaangażowani. Aby uzyskać pełną listę osób, które przyczyniły się do wcześniejszych wersji, prosimy o zapoznanie się z każdą poprzednią wersją.
