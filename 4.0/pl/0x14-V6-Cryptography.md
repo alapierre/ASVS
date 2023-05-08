@@ -8,8 +8,6 @@ Upewnij się, że audytowana aplikacja spełnia następujące wymagania na wysok
 * Używany jest odpowiedni generator liczb losowych.
 * Dostęp do kluczy jest bezpiecznie zarządzany.
 
-[^1]: "Fail in a secure manner" odnosi się do sytuacji, kiedy moduł kryptograficzny zawodzi lub nie działa poprawnie. W takim przypadku ważne jest, aby moduł ten nie narażał aplikacji na dodatkowe zagrożenia związane z bezpieczeństwem. Innymi słowy, "fail in a secure manner" oznacza, że w przypadku wystąpienia błędu w module kryptograficznym, aplikacja powinna być zaprojektowana tak, aby ten błąd nie naraził poufnych danych lub kluczowych funkcjonalności na ryzyko ataków. (przypis tłumacza)
-
 ## V6.1 Klasyfikacja informacji
 
 Najważniejszym zasobem jest przetwarzana, przechowywana lub przesyłana przez aplikację informacja. Zawsze przeprowadzaj ocenę wpływu na prywatność, aby właściwie sklasyfikować wymagania dotyczące ochrony danych przechowywanych w aplikacji.
@@ -37,13 +35,9 @@ Chociaż ta sekcja nie jest łatwa do przetestowania poprzez penetrowanie aplika
 | **6.2.7** | Zweryfikuj, że zaszyfrowane dane są uwierzytelniane poprzez podpisy cyfrowe, uwierzytelnione tryby szyfrowania lub HMAC, aby upewnić się, że tekst jawny nie został zmieniony przez nieuprawnioną osobę.                                                                                                                                                                                  |    |    | ✓  | 326 |
 | **6.2.8** | Zweryfikuj, że wszystkie operacje kryptograficzne są realizowane w czasie stałym (ang. constant-time), bez żadnych "skrótów" (ang. short-circuit) w porównaniach, obliczeniach lub zwracaniu, aby uniknąć wycieków informacji.                                                                                                                                                            |    |    | ✓  | 385 |
 
-[^2]: Zobacz przypis 1
-
 ## V6.3 Wartości losowe
 
 Generowanie prawdziwych liczb losowych (PRNG) jest niezwykle trudne do realizacji. W ogólności, dobre źródła entropii w systemie szybko zostaną wyczerpane, jeśli będą nadużywane, ale źródła z mniejszą losowością mogą prowadzić do przewidywalnych kluczy i sekretów [^3].
-
-[^3]: Aby zapewnić wysoką jakość generowania liczb pseudolosowych, ważne jest, aby wykorzystać jako źródło entropii fizyczne zjawiska, takie jak hałas termiczny, zmienność czasu rzeczywistego lub ruch myszki kierowanej przez człowieka. Należy także unikać powtarzalnych wartości, ponieważ mogą one prowadzić do łamania kluczy lub innych podobnych ataków. Dlatego ważne jest, aby zapewnić odpowiednie ustawienia losowości dla algorytmów kryptograficznych, aby zapobiec wykorzystaniu niskiej entropii i tym samym zapewnienie bezpieczeństwa danych.
 
 |     #     | Opis                                                                                                                                                                                                                                                                                                          | L1 | L2 | L3 | CWE |
 |:---------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--:|:--:|:--:|:---:|
@@ -67,3 +61,9 @@ Aby uzyskać więcej informacji, zobacz także:
 * [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html)
 * [OWASP Cheat Sheet: Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 * [FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final)
+
+[^1]: "Fail in a secure manner" odnosi się do sytuacji, kiedy moduł kryptograficzny zawodzi lub nie działa poprawnie. W takim przypadku ważne jest, aby moduł ten nie narażał aplikacji na dodatkowe zagrożenia związane z bezpieczeństwem. Innymi słowy, "fail in a secure manner" oznacza, że w przypadku wystąpienia błędu w module kryptograficznym, aplikacja powinna być zaprojektowana tak, aby ten błąd nie naraził poufnych danych lub kluczowych funkcjonalności na ryzyko ataków. (przypis tłumacza)
+
+[^2]: Zobacz przypis 1
+
+[^3]: Aby zapewnić wysoką jakość generowania liczb pseudolosowych, ważne jest, aby wykorzystać jako źródło entropii fizyczne zjawiska, takie jak hałas termiczny, zmienność czasu rzeczywistego lub ruch myszki kierowanej przez człowieka. Należy także unikać powtarzalnych wartości, ponieważ mogą one prowadzić do łamania kluczy lub innych podobnych ataków. Dlatego ważne jest, aby zapewnić odpowiednie ustawienia losowości dla algorytmów kryptograficznych, aby zapobiec wykorzystaniu niskiej entropii i tym samym zapewnienie bezpieczeństwa danych (przypis tłumacza).
