@@ -1,38 +1,37 @@
-# Appendix A: Glossary
+# Appendix A: Słownik
 
-- **Address Space Layout Randomization** (ASLR) – A technique to make exploiting memory corruption bugs more difficult.
-- **Allow list** – A list of permitted data or operations, for example a list of characters that are allowed to perform input validation.
-- **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
-- **Application Security Verification** – The technical assessment of an application against the OWASP ASVS.
-- **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
-- **Authentication** – The verification of the claimed identity of an application user.
-- **Automated Verification** – The use of automated tools (either dynamic analysis tools, static analysis tools, or both) that use vulnerability signatures to find problems.
-- **Black box testing** – It is a method of software testing that examines the functionality of an application without peering into its internal structures or workings.
-- **Component** – a self-contained unit of code, with associated disk and network interfaces that communicates with other components.
-- **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
-- **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
-- **Common Weakness Enumeration** (CWE) - A community-developed list of common software security weaknesses. It serves as a common language, a measuring stick for software security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.
-- **Design Verification** – The technical assessment of the security architecture of an application.
-- **Dynamic Application Security Testing** (DAST) - Technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
-- **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
-- **Fast IDentity Online** (FIDO) - A set of authentication standards which allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
-- **Globally Unique Identifier** (GUID) – a unique reference number used as an identifier in software.
-- **Hyper Text Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
-- **Hardcoded keys** – Cryptographic keys which are stored on the filesystem, be it in code, comments or files.
-- **Hardware Security Module** (HSM) - Hardware component which is able to store cryptographic keys and other secrets in a protected manner.
-- **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library. 
-- **Input Validation** – The canonicalization and validation of untrusted user input.
-- **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
-- **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
-- **Open Web Application Security Project** (OWASP) – The Open Web Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: https://www.owasp.org/
-- **One-time Password** (OTP) - A password which is uniquely generated to be used on a single occasion.
-- **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
-- **Password-Based Key Derivation Function 2** (PBKDF2) - A special one-way algorithm used to create a strong cryptographic key from an input text (such as a password) and an additional random salt value and can therefore be used make it harder to crack a password offline if the resulting value is stored instead of the original password.
-- **Personally Identifiable Information** (PII) - is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context.
-- **Position-independent executable** (PIE) - A body of machine code that, being placed somewhere in the primary memory, executes properly regardless of its absolute address.
-- **Public Key Infrastructure** (PKI) - An arrangement that binds public keys with respective identities of entities. The binding is established through a process of registration and issuance of certificates at and by a certificate authority (CA).
-- **Public Switched Telephone Network** (PSTN) - The traditional telephone network including both fixed-line telephones and mobile telephones.
-- **Relying Party** (RP) - Generally an application which is relying on a user having authenticated against a separate authentication provider. The application is relying on some sort of token or set of signed assertions provided by that authentication provider to trust that the user is who they say they are.
+- **Address Space Layout Randomization** (Losowe rozmieszczanie przestrzeni adresowej) (ASLR) – Technika utrudniająca wykorzystywanie błędów związanych z uszkodzeniem pamięci.
+- **Allow list** (Lista dozwolonych wartości) – Lista dozwolonych danych lub operacji, na przykład lista znaków, które są dopuszczone do walidacji danych wejściowych.
+- **Application Security** (Bezpieczeństwo aplikacji) – Bezpieczeństwo na poziomie aplikacji koncentruje się na analizie składników tworzących warstwę aplikacji w modelu referencyjnym Open Systems Interconnection Reference Model (model OSI), zamiast skupiać się na przykład na podstawowym systemie operacyjnym czy połączonych sieciach.
+- **Application Security Verification** (Weryfikacja bezpieczeństwa aplikacji) – Techniczna ocena aplikacji w oparciu o OWASP ASVS (OWASP Application Security Verification Standard).
+- **Application Security Verification Report** (Raport weryfikacji bezpieczeństwa aplikacji) – Raport dokumentujący ogólne wyniki i analizy wspierające wykonane przez weryfikatora dla konkretnej aplikacji.
+- **Authentication** (Uwierzytelnianie) – Weryfikacja podanej tożsamości użytkownika aplikacji.
+- **Automated Verification** (Automatyczna weryfikacja) – Wykorzystanie narzędzi automatycznych (narzędzi analizy dynamicznej, narzędzi analizy statycznej lub obu) opartych na sygnaturach podatności do wyszukiwania problemów.
+- **Black box testing** (Testowanie "czarnej skrzynki") – Metoda testowania oprogramowania, która sprawdza funkcjonalność aplikacji bez zaglądania do jej wewnętrznych struktur czy działania.
+- **Component** (Komponent) – Samodzielna jednostka kodu z powiązanymi interfejsami dyskowymi i sieciowymi, która komunikuje się z innymi komponentami.
+- **Cross-Site Scripting (XSS)** – Podatność bezpieczeństwa zwykle występująca w aplikacjach internetowych, umożliwiająca wstrzykiwanie skryptów po stronie klienta do zawartości.
+- **Cryptographic module** (Moduł kryptograficzny) – Sprzętowy, programowy i/lub firmware'owy moduł, który implementuje algorytmy kryptograficzne i/lub generuje klucze kryptograficzne.
+- **Common Weakness Enumeration** (CWE) - Lista powszechnych słabości bezpieczeństwa oprogramowania rozwijana przez społeczność. Służy jako wspólny język, narzędzie pomiarowe dla narzędzi bezpieczeństwa oprogramowania oraz jako podstawa identyfikacji, łagodzenia i zapobiegania słabościom.
+- **Design Verification** (Weryfikacja projektowa) – Techniczna ocena architektury bezpieczeństwa aplikacji.
+- **Dynamic Application Security Testing** (DAST) (Dynamiczne testowanie bezpieczeństwa aplikacji) – Technologie projektowane w celu wykrywania stanów wskazujących na potencjalną słabość bezpieczeństwa w aplikacji w trakcie jej działania.
+- **Dynamic Verification** (Dynamiczna weryfikacja) – Wykorzystanie narzędzi automatycznych, które w trakcie wykonywania aplikacji poszukują problemów opartych na sygnaturach podatności.
+- **Fast IDentity Online** (FIDO) - Zbiór standardów uwierzytelniania, które umożliwiają stosowanie różnych metod uwierzytelniania, w tym biometrii, modułów Trusted Platform Module (TPM), urządzeń USB.
+- **Globally Unique Identifier** (GUID) – unikalny numer referencyjny używany jako identyfikator w oprogramowaniu.
+- **Hyper Text Transfer Protocol** (HTTPS) –  Protokół aplikacyjny służący do rozproszonego, współpracującego systemu informacyjnego opartego na hipertekście. Jest podstawą komunikacji danych w Internecie.
+- **Hardware Security Module** (HSM) - Komponent sprzętowy, który jest zdolny do przechowywania kluczy kryptograficznych i innych sekretów w sposób chroniony.
+- **Hibernate Query Language** (HQL) - Język zapytań przypominający składnią SQL, używany przez bibliotekę ORM Hibernate.
+- **Input Validation** –  Kanonizacja i walidacja niezaufanych danych wprowadzanych przez użytkownika.
+- **Malicious Code** (Złośliwy kod) – Kod wprowadzany do aplikacji podczas jej rozwoju bez wiedzy właściciela aplikacji, który obejmuje zamierzoną politykę bezpieczeństwa aplikacji. Nie jest to to samo co złośliwe oprogramowanie, takie jak wirus czy robak!
+- **Malware** –  Kod wykonywalny, który jest wprowadzany do aplikacji w czasie jej działania bez wiedzy użytkownika lub administratora aplikacji.
+- **Open Web Application Security Project** (OWASP) – Organizacja typu non-profit skupiająca się na poprawie bezpieczeństwa oprogramowania aplikacyjnego. Celem OWASP jest uświadamianie znaczenia bezpieczeństwa aplikacji oraz wspieranie inicjatyw służących identyfikacji, łagodzeniu i zapobieganiu zagrożeniom związanym z bezpieczeństwem aplikacji. Zobacz: https://www.owasp.org/
+- **One-time Password** (OTP) (Hasło jednorazowe) (OTP) – Hasło generowane w sposób unikalny, które jest przeznaczone do użycia tylko jeden raz.
+- **Object-relational Mapping** (ORM) (Mapowanie obiektowo-relacyjne) – System, który umożliwia odwoływanie się do relacyjnej bazy danych i jej przeszukiwanie w ramach programu aplikacyjnego, używając kompatybilnego z aplikacją modelu obiektowego.
+- **Password-Based Key Derivation Function 2** (PBKDF2) - To specjalny algorytm jednokierunkowy, który jest używany do tworzenia silnego klucza kryptograficznego na podstawie tekstu wejściowego (takiego jak hasło) i dodatkowej losowej wartości soli. Algorytm ten może być stosowany, aby utrudnić łamanie hasła offline, jeśli wynikowa wartość jest przechowywana zamiast oryginalnego hasła.
+- **Personally Identifiable Information** (PII) (Dane osobowe) - to informacje, które same samodzielnie lub w połączeniu z innymi informacjami mogą służyć do identyfikacji, kontaktowania lub zlokalizowania pojedynczej osoby fizycznej, lub do jej identyfikacji w określonym kontekście (Zobacz art 4 RODO).
+- **Position-independent executable** (PIE) - To fragment maszynowego, który po umieszczeniu w pamięci głównej uruchamia się poprawnie niezależnie od swojego adresu bezwzględnego.
+- **Public Key Infrastructure** (PKI) - To infrastruktura klucza publicznego, która łączy klucze publiczne z odpowiednimi tożsamościami podmiotów. Powiązanie to jest ustalane poprzez proces rejestracji i wydawania certyfikatów przez zaufane centrum certyfikacyjne (CA).
+- **Public Switched Telephone Network** (PSTN) - To tradycyjna sieć telefoniczna, obejmująca zarówno telefony stacjonarne, jak i telefony komórkowe.
+- **Relying Party** (RP) - Zazwyczaj jest to aplikacja, która zapewnia, że użytkownik jest uwierzytelniony przez oddzielnego dostawcę uwierzytelnienia. Aplikacja polega na tokenie lub zestawie podpisanych poświadczeń dostarczonych przez tego dostawcę uwierzytelnienia, aby zaufać, że użytkownik jest tym, za kogo się podaje.
 - **Static application security testing** (SAST) - A set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the “inside out” in a nonrunning state.
 - **Software development lifecycle** (SDLC) - The step by step process by which software is developed going from the initial requirements to deployment and maintainance.
 - **Security Architecture** – An abstraction of an application's design that identifies and describes where and how security controls are used, and also identifies and describes the location and sensitivity of both user and application data.
