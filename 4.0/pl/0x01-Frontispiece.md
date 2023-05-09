@@ -19,7 +19,7 @@ Copyright © 2008-2021 The OWASP Foundation. Ten dokument jest udostępniany na 
 | Andrew van der Stock 	| Daniel Cuthbert 	| Jim Manico 	|
 | Josh C Grossman      	| Elar Lang     	|            	|
 
-## Major Contributors
+## Główni Współtwórcy
 
 |                	|                	|                   	|
 |----------------	|----------------	|-------------------	|
@@ -27,7 +27,7 @@ Copyright © 2008-2021 The OWASP Foundation. Ten dokument jest udostępniany na 
 | Ralph Andalis 	| Ron Perris     	| Sjoerd Langkemper 	|
 | Tonimir Kisasondi |               	|                   	|
 
-## Other Contributors and Reviewers
+## Inni współtwórcy i recenzenci
 
 |                     |                    |                   |                  |                   |
 |---------------------|--------------------|-------------------|------------------|-------------------|
@@ -47,10 +47,9 @@ Copyright © 2008-2021 The OWASP Foundation. Ten dokument jest udostępniany na 
 
 ## Polskie tłumaczenie
 
-- Adrian Lapierre
-- Adam Szewczyk
-- Jan Sosna
-- Damian Lubawy
+|                     |                    |               |                  |                |
+|---------------------|--------------------|---------------|------------------|----------------|
+| Adrian Lapierre     | Adam Szewczyk      | Jan Sosna     | Damian Lubawy    | Karol Bryzgiel |
 
 
 Jeśli brakuje Twojego nazwiska na liście do wersji 4.0.3, proszę zgłoś błąd na GitHubie, aby zostać uwzględnionym w przyszłych aktualizacjach. 

@@ -1,6 +1,6 @@
-# Appendix B: References
+# Appendix B: Bibliografia
 
-The following OWASP projects are most likely to be useful to users/adopters of this standard:
+Następujące projekty OWASP prawdopodobnie będą przydatne dla użytkowników, osób wdrażających/przyjmujących ten standard:
 
 ## OWASP Core Projects
 
@@ -12,11 +12,11 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ##  OWASP Cheat Sheet Series project
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has a number of cheat sheets which will be relevant for different topics in the ASVS.
+[This project](https://owasp.org/www-project-cheat-sheets/) posiada szereg przydatnych podpowiedzi (cheat sheets), które będą istotne dla różnych tematów zawartych w ASVS.
 
-There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+Tu jest dostępne mapowanie do ASVS: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
-## Mobile Security Related Projects
+## Projekty związane z bezpieczeństwem aplikacji mobilnych
 
 1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
@@ -30,9 +30,9 @@ There is a mapping to the ASVS which can be found here: [https://cheatsheetserie
 
 1. OWASP Serverless Project: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
 
-## Others
+## Inne
 
-Similarly, the following web sites are most likely to be useful to users/adopters of this standard
+Podobnie, następujące strony internetowe są najprawdopodobniej przydatne dla użytkowników/przyjmujących ten standard.
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
