@@ -1,6 +1,6 @@
 # V3 Zarządzanie sesją
 
-## Cel kontrolny
+## Cele kontroli
 
 Jednym z podstawowych składników dowolnej aplikacji internetowej lub stanowego interfejsu API jest mechanizm, za pomocą którego kontroluje i utrzymuje stan interakcji użytkownika lub urządzenia. Zarządzanie sesją zmienia protokół bezstanowy na stanowy, co ma kluczowe znaczenie dla rozróżniania użytkowników lub urządzeń.
 
