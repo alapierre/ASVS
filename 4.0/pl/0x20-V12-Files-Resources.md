@@ -1,62 +1,62 @@
 # V12 Files and Resources
 
-## Control Objective
+## Cele kontroli
 
-Ensure that a verified application satisfies the following high level requirements:
+Upewnij się, że zweryfikowana aplikacja spełnia następujące ogólne wymagania::
 
-* Untrusted file data should be handled accordingly and in a secure manner.
-* Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.
+* Niezaufane pliki danych należy traktować odpowiednio i w bezpieczny sposób.
+* Niezaufane dane plików uzyskane z niezaufanych źródeł są przechowywane poza głównym katalogiem internetowym i z ograniczonymi uprawnieniami.
 
-## V12.1 File Upload
+## V12.1 Przesyłanie plików 
 
-Although zip bombs are eminently testable using penetration testing techniques, they are considered L2 and above to encourage design and development consideration with careful manual testing, and to avoid automated or unskilled manual penetration testing of a denial of service condition.
-
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.1.1** | Verify that the application will not accept large files that could fill up storage or cause a denial of service. | ✓ | ✓ | ✓ | 400 |
-| **12.1.2** | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
-| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
-
-## V12.2 File Integrity
+Chociaż bomby zip są wyjątkowo testowalne przy użyciu technik testów penetracyjnych, są one uważane za L2 i wyższe, aby zachęcić do rozważenia projektowania i rozwoju przy dokładnym testowaniu ręcznym oraz aby uniknąć zautomatyzowanych lub niewykwalifikowanych manualnych testów penetracyjnych powodujących odmowę usługi.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.2.1** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's content. | | ✓ | ✓ | 434 |
+| **12.1.1** | Sprawdź, czy aplikacja nie akceptuje dużych plików, które mogłyby zapełnić pamięć lub spowodować odmowę usługi. | ✓ | ✓ | ✓ | 400 |
+| **12.1.2** | Sprawdź, czy aplikacja sprawdza skompresowane pliki (np. zip, gz, docx, odt) pod kątem maksymalnego dozwolonego rozmiaru po rozpakowaniu i maksymalnej liczby plików przed rozpakowaniem pliku. | | ✓ | ✓ | 409 |
+| **12.1.3** | Sprawdź, czy limit rozmiaru pliku i maksymalna liczba plików na użytkownika są wymuszane, aby upewnić się, że pojedynczy użytkownik nie może zapełnić pamięci zbyt dużą liczbą plików lub zbyt dużymi plikami. | | ✓ | ✓ | 770 |
 
-## V12.3 File Execution
-
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.3.1** | Verify that user-submitted filename metadata is not used directly by system or framework filesystems and that a URL API is used to protect against path traversal. | ✓ | ✓ | ✓ | 22 |
-| **12.3.2** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | ✓ | ✓ | ✓ | 98 |
-| **12.3.4** | Verify that the application protects against Reflective File Download (RFD) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename. | ✓ | ✓ | ✓ | 641 |
-| **12.3.5** | Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection. | ✓ | ✓ | ✓ | 78 |
-| **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. | | ✓ | ✓ | 829 |
-
-## V12.4 File Storage
+## V12.2 Integralność plików
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions. | ✓ | ✓ | ✓ | 552 |
-| **12.4.2** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload and serving of known malicious content. | ✓ | ✓ | ✓ | 509 |
+| **12.2.1** | Sprawdź, czy pliki uzyskane z niezaufanych źródeł są sprawdzane pod kątem oczekiwanego typu na podstawie zawartości pliku. | | ✓ | ✓ | 434 |
 
-## V12.5 File Download
-
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.5.1** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
-| **12.5.2** | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | ✓ | ✓ | ✓ | 434 |
-
-## V12.6 SSRF Protection
+## V12.3 Wykonowanie plików
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.6.1** | Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data/files from. | ✓ | ✓ | ✓ | 918 |
+| **12.3.1** | Sprawdź, czy metadane nazw plików przesłane przez użytkowników nie są używane bezpośrednio w systemie lub przez platformy programistyczne oraz czy interfejs API jest chroniony przed atakiem umożliwiającym niekontrolowany dostęp do plików i katalogów (Path Traversal). | ✓ | ✓ | ✓ | 22 |
+| **12.3.2** | Sprawdź, czy przesłane przez użytkownika metadane nazw plików są sprawdzane lub ignorowane, aby zapobiec ujawnianiu, tworzeniu, aktualizowaniu lub usuwaniu plików lokalnych (LFI). | ✓ | ✓ | ✓ | 73 |
+| **12.3.3** | Sprawdź, czy przesłane przez użytkownika metadane nazw plików są weryfikowane lub ignorowane, aby zapobiec ujawnieniu lub wykonaniu zdalnych plików za pomocą ataków Remote File Inclusion (RFI) lub Server-side Request Forgery (SSRF). | ✓ | ✓ | ✓ | 98 |
+| **12.3.4** | VSprawdź, czy aplikacja chroni przed odblaskowym pobieraniem plików (RFD), sprawdzając lub ignorując nazwy plików przesłane przez użytkownika w parametrze JSON, JSONP lub URL, nagłówek Content-Type odpowiedzi powinien być ustawiony na tekst/zwykły, a nagłówek Content-Disposition powinien mieć stałą nazwę pliku. | ✓ | ✓ | ✓ | 641 |
+| **12.3.5** | Sprawdź, czy niezaufane metadane plików nie są używane bezpośrednio z systemowym interfejsem API lub bibliotekami, aby chronić się przed wstrzykiwaniem poleceń systemu operacyjnego.. | ✓ | ✓ | ✓ | 78 |
+| **12.3.6** | Sprawdź, czy aplikacja nie zawiera i nie wykonuje funkcji z niezaufanych źródeł, takich jak niezweryfikowane sieci dystrybucji treści, biblioteki JavaScript, biblioteki węzłów npm lub biblioteki DLL po stronie serwera. | | ✓ | ✓ | 829 |
 
-## References
+## V12.4 Przechowywanie plików
 
-For more information, see also:
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **12.4.1** | Sprawdź, czy pliki uzyskane z niezaufanych źródeł są przechowywane poza głównym katalogiem internetowym, z ograniczonymi uprawnieniami. | ✓ | ✓ | ✓ | 552 |
+| **12.4.2** | Sprawdź, czy pliki uzyskane z niezaufanych źródeł są skanowane przez skanery antywirusowe, aby zapobiec przesyłaniu i udostępnianiu znanych złośliwych treści. | ✓ | ✓ | ✓ | 509 |
+
+## V12.5 Pobieranie pliku
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **12.5.1** | Sprawdź, czy warstwa internetowa jest skonfigurowana do obsługiwania tylko plików z określonymi rozszerzeniami plików, aby zapobiec niezamierzonym informacjom i wyciekowi kodu źródłowego. Na przykład pliki kopii zapasowych (np. .bak), tymczasowe pliki robocze (np. .swp), pliki skompresowane (.zip, .tar.gz itp.) oraz inne rozszerzenia powszechnie używane przez redaktorów powinny być blokowane, chyba że jest to wymagane. | ✓ | ✓ | ✓ | 552 |
+| **12.5.2** | Sprawdź, czy bezpośrednie żądania przesłanych plików nigdy nie będą wykonywane jako treść HTML/JavaScript. | ✓ | ✓ | ✓ | 434 |
+
+## V12.6 Ochrona przed SSRF
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **12.6.1** | Sprawdź, czy serwer WWW lub serwer aplikacji jest skonfigurowany z listą dozwolonych zasobów lub systemów, do których serwer może wysyłać żądania lub ładować dane/pliki. | ✓ | ✓ | ✓ | 918 |
+
+## Bibliografia
+
+Aby uzyskać więcej informacji, zobacz także:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 * [Reflective file download by Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
