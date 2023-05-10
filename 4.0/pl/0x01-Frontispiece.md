@@ -49,7 +49,7 @@ Copyright © 2008-2021 The OWASP Foundation. Ten dokument jest udostępniany na 
 
 |                     |                    |               |                  |                |
 |---------------------|--------------------|---------------|------------------|----------------|
-| Adrian Lapierre     | Adam Szewczyk      | Jan Sosna     | Damian Lubawy    | Karol Bryzgiel |
+| Adrian Lapierre     | Adam Szewczyk      | Jan Sosna     | pag-r    | Karol Bryzgiel |
 
 
 Jeśli brakuje Twojego nazwiska na liście do wersji 4.0.3, proszę zgłoś błąd na GitHubie, aby zostać uwzględnionym w przyszłych aktualizacjach. 
