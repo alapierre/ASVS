@@ -31,7 +31,7 @@ Upewnij się, że zweryfikowana aplikacja spełnia następujące wysokie wymagan
 | **8.2.2** | Sprawdź, czy dane przechowywane w pamięci przeglądarki (takie jak localStorage, sessionStorage, IndexedDB lub pliki cookie) nie zawierają danych wrażliwych. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | Sprawdź, czy uwierzytelnione dane są usuwane z pamięci klienta, takiej jak DOM przeglądarki, po zakończeniu klienta lub sesji. | ✓ | ✓ | ✓ | 922 |
 
-## Wersja 8.3 Wrażliwe dane prywatne
+## V8.3 Wrażliwe dane prywatne
 
 Ta sekcja pomaga chronić poufne dane przed tworzeniem, odczytywaniem, aktualizowaniem lub usuwaniem bez autoryzacji, zwłaszcza w dużych ilościach.
 
