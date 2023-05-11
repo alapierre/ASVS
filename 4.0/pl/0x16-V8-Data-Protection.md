@@ -1,4 +1,4 @@
-§# V8 Ochrona danych
+# V8 Ochrona danych
 
 ## Cel kontrolny
 
