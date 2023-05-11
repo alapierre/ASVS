@@ -28,7 +28,7 @@ Używaj aktualnych narzędzi do regularnego przeglądania konfiguracji klienta.
 | **9.1.2** | Za pomocą aktualnych narzędzi testowych TLS sprawdź, czy włączone są tylko silne zestawy szyfrów, przy czym najsilniejsze zestawy szyfrów są ustawione jako preferowane. | ✓ | ✓ | ✓ | 326 |
 | **9.1.3** | Sprawdź, czy włączone są tylko najnowsze zalecane wersje protokołu TLS, takie jak TLS 1.2 i TLS 1.3. Najnowsza wersja protokołu TLS powinna być preferowaną opcją. | ✓ | ✓ | ✓ | 326 |
 
-## Bezpieczeństwo komunikacji z serwerem w wersji 9.2
+## V9.2 Bezpieczeństwo komunikacji z serwerem 
 
 Komunikacja z serwerem to coś więcej niż tylko HTTP. Bezpieczeństwo połączeń pomiędzy systemami, takimi jak systemy monitorowania, narzędzia do zarządzania, dostęp zdalny i ssh, oprogramowanie pośrednie, baza danych, komputery typu mainframe, systemy partnerskie lub zewnętrzne systemy źródłowe — powinno być zachowane. Wszelkie połączenia muszą być zaszyfrowane, aby zapobiec sytuacji, w której ruch jest nie do zabezpieczony na zewnątrz a banalnie łatwy do przechwycenia wewnątrz”.
 
