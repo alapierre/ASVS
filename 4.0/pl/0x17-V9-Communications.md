@@ -30,7 +30,7 @@ Używaj aktualnych narzędzi do regularnego przeglądania konfiguracji klienta.
 
 ## Bezpieczeństwo komunikacji z serwerem w wersji 9.2
 
-***Komunikacja z serwerem to coś więcej niż tylko HTTP. Bezpieczeństwo połączeń pomiędzy systemami, takimi jak systemy monitorowania, narzędzia do zarządzania, dostęp zdalny i ssh, oprogramowanie pośrednie, baza danych, komputery typu mainframe, systemy partnerskie lub zewnętrzne systemy źródłowe — powinno być zachowane. Wszelkie połączenia muszą być zaszyfrowane, aby zapobiec sytuacji, w której ruch jest nie do zabezpieczony na zewnątrz a banalnie łatwy do przechwycenia wewnątrz”.***
+Komunikacja z serwerem to coś więcej niż tylko HTTP. Bezpieczeństwo połączeń pomiędzy systemami, takimi jak systemy monitorowania, narzędzia do zarządzania, dostęp zdalny i ssh, oprogramowanie pośrednie, baza danych, komputery typu mainframe, systemy partnerskie lub zewnętrzne systemy źródłowe — powinno być zachowane. Wszelkie połączenia muszą być zaszyfrowane, aby zapobiec sytuacji, w której ruch jest nie do zabezpieczony na zewnątrz a banalnie łatwy do przechwycenia wewnątrz”.
 
 | # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
