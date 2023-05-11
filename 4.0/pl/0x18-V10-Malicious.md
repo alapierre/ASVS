@@ -11,7 +11,7 @@ Upewnij się, że kod spełnia następujące wymagania:
 
 Znalezienie złośliwego kodu jest dowodem negatywnym, którego nie można całkowicie zweryfikować. Należy dołożyć wszelkich starań, aby kod nie zawierał złośliwych oraz niepożądanych funkcji.
 
-## Integralność kodu V10.1
+## V10.1 Integralność kodu 
 
 Najlepszą obroną przed złośliwym kodem jest „ufaj, ale weryfikuj”. Wprowadzenie nieautoryzowanych lub złośliwych komend do kodu aplikacji jest często przestępstwem w wielu jurysdykcjach. Zasady i procedury powinny jasno określać sankcje dotyczące złośliwego kodu.
 
