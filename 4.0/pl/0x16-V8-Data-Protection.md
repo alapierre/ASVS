@@ -1,64 +1,64 @@
-# V8 Data Protection
+§# V8 Ochrona danych
 
-## Control Objective
+## Cel kontrolny
 
-There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.
+Istnieją trzy kluczowe elementy silnej ochrony danych: poufność, integralność i dostępność (PID). Norma ta zakłada, że ochrona danych jest wymuszana na zaufanym systemie, takim jak serwer, który został utwardzony i ma wystarczające zabezpieczenia.
 
-Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones and tablets, the application is responsible for ensuring data stored on these devices is encrypted and cannot be easily illicitly obtained, altered or disclosed.
+Aplikacje muszą zakładać, że wszystkie urządzenia użytkowników są w jakiś sposób zagrożone. Gdy aplikacja przesyła lub przechowuje poufne informacje na niezabezpieczonych urządzeniach, takich jak wspólne komputery, telefony i tablety, aplikacja jest odpowiedzialna za zapewnienie, że dane przechowywane na tych urządzeniach są szyfrowane i nie można ich łatwo nielegalnie uzyskać, zmienić lub ujawnić.
 
-Ensure that a verified application satisfies the following high level data protection requirements:
+Upewnij się, że zweryfikowana aplikacja spełnia następujące wysokie wymagania dotyczące ochrony danych:
 
-* Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
-* Integrity: Data should be protected from being maliciously created, altered or deleted by unauthorized attackers.
-* Availability: Data should be available to authorized users as required.
+* Poufność: Dane powinny być chronione przed nieupoważnionym dostępem lub ujawnieniem zarówno podczas transportu, jak i podczas przechowywania.
+* Integralność: Dane powinny być chronione przed złośliwą ingerencją podczas tworzenia, zmiany lub usunięciem przez nieautoryzowanych napastników.
+* Dostępność: Dane powinny być dostępne dla upoważnionych użytkowników zgodnie z wymaganiami.
 
-## V8.1 General Data Protection
+## V8.1 Ogólna ochrona danych
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **8.1.1** | Verify the application protects sensitive data from being cached in server components such as load balancers and application caches. | | ✓ | ✓ | 524 |
-| **8.1.2** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. | | ✓ | ✓ | 524 |
-| **8.1.3** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. | | ✓ | ✓ | 233 |
-| **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
-| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
-| **8.1.6** | Verify that backups are stored securely to prevent data from being stolen or corrupted. | | | ✓ | 19 |
+| **8.1.1** | Sprawdź, czy aplikacja chroni poufne dane przed buforowaniem w takich modułach, jak load balancery i pamięć podręczna aplikacji. | | ✓ | ✓ | 524 |
+| **8.1.2** | Sprawdź, czy wszystkie buforowane lub tymczasowe kopie poufnych danych przechowywanych na serwerze są chronione przed nieautoryzowanym dostępem lub usuwane/unieważniane po uzyskaniu dostępu do poufnych danych przez upoważnionego użytkownika. | | ✓ | ✓ | 524 |
+| **8.1.3** | Sprawdź, czy aplikacja ogranicza liczbę parametrów w żądaniu, takich jak ukryte pola, zmienne Ajax, pliki cookie i wartości nagłówków. | | ✓ | ✓ | 233 |
+| **8.1.4** | Sprawdź, czy aplikacja może wykrywać anomalia związane ze zwiększoną liczbą zapytań i ostrzegać o nich, na przykład według adresu IP, użytkownika, ilości zapytań na godzinę lub dzień oraz inne kryteria, które mają sens dla aplikacji. | | ✓ | ✓ | 770 |
+| **8.1.5** | Sprawdź, czy regularnie wykonywane są kopie zapasowe ważnych danych i czy przeprowadzane są testowe przywracanie danych. | | | ✓ | 19 |
+| **8.1.6** | Sprawdź, czy kopie zapasowe są bezpiecznie przechowywane, aby zapobiec kradzieży lub uszkodzeniu danych. | | | ✓ | 19 |
 
-## V8.2 Client-side Data Protection
+## V8.2 Ochrona danych po stronie klienta
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **8.2.1** | Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
-| **8.2.2** | Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data. | ✓ | ✓ | ✓ | 922 |
-| **8.2.3** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. | ✓ | ✓ | ✓ | 922 |
+| **8.2.1** | Sprawdź, czy aplikacja ustawia wystarczającą liczbę nagłówków zapobiegających buforowaniu, aby poufne dane nie były buforowane w nowoczesnych przeglądarkach. | ✓ | ✓ | ✓ | 525 |
+| **8.2.2** | Sprawdź, czy dane przechowywane w pamięci przeglądarki (takie jak localStorage, sessionStorage, IndexedDB lub pliki cookie) nie zawierają danych wrażliwych. | ✓ | ✓ | ✓ | 922 |
+| **8.2.3** | Sprawdź, czy uwierzytelnione dane są usuwane z pamięci klienta, takiej jak DOM przeglądarki, po zakończeniu klienta lub sesji. | ✓ | ✓ | ✓ | 922 |
 
-## V8.3 Sensitive Private Data
+## Wersja 8.3 Wrażliwe dane prywatne
 
-This section helps protect sensitive data from being created, read, updated, or deleted without authorization, particularly in bulk quantities.
+Ta sekcja pomaga chronić poufne dane przed tworzeniem, odczytywaniem, aktualizowaniem lub usuwaniem bez autoryzacji, zwłaszcza w dużych ilościach.
 
-Compliance with this section implies compliance with V4 Access Control, and in particular V4.2. For example, to protect against unauthorized updates or disclosure of sensitive personal information requires adherence to V4.2.1. Please comply with this section and V4 for full coverage.
+Zgodność z tą sekcją oznacza zgodność z Kontrolą dostępu w wersji 4, a w szczególności w wersji 4.2. Na przykład ochrona przed nieautoryzowanymi aktualizacjami lub ujawnieniem poufnych danych osobowych wymaga przestrzegania wersji 4.2.1. Aby uzyskać pełne pokrycie, należy postępować zgodnie z tą sekcją i wersją 4.
 
-Note: Privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, directly affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This ranges from severe penalties to simple advice. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+Uwaga: Regulacje i przepisy prawa dotyczące prywatności, takie jak australijskie zasady prywatności APP-11 lub RODO, mają bezpośredni wpływ na sposób, w jaki aplikacje muszą podchodzić do wdrażania przechowywania, wykorzystywania i przesyłania poufnych danych osobowych. Obejmuje to zarówno surowe kary, jak i pouczenia. Należy zapoznać się z lokalnymi przepisami i regulacjami oraz w razie potrzeby skonsultować się z wykwalifikowanym specjalistą.
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **8.3.1** | Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data. | ✓ | ✓ | ✓ | 319 |
-| **8.3.2** | Verify that users have a method to remove or export their data on demand. | ✓ | ✓ | ✓ | 212 |
-| **8.3.3** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 285 |
-| **8.3.4** | Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 200 |
-| **8.3.5** | Verify accessing sensitive data is audited (without logging the sensitive data itself), if the data is collected under relevant data protection directives or where logging of access is required. | | ✓ | ✓ | 532 |
-| **8.3.6** | Verify that sensitive information contained in memory is overwritten as soon as it is no longer required to mitigate memory dumping attacks, using zeroes or random data. | | ✓ | ✓ | 226 |
-| **8.3.7** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
-| **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | 285 |
+| **8.3.1** | Sprawdź, czy poufne dane są wysyłane do serwera w treści lub nagłówkach wiadomości HTTP oraz czy parametry ciągu z dowolnego zapytania HTTP nie zawierają poufnych danych. | ✓ | ✓ | ✓ | 319 |
+| **8.3.2** | Sprawdź, czy użytkownicy mają metodę usuwania lub eksportowania swoich danych na żądanie. | ✓ | ✓ | ✓ | 212 |
+| **8.3.3** | Zweryfikuj, czy użytkownicy otrzymali jasny język dotyczący gromadzenia i wykorzystywania dostarczonych danych osobowych oraz czy użytkownicy wyrazili zgodę na wykorzystanie tych danych przed ich wykorzystaniem w jakikolwiek sposób. | ✓ | ✓ | ✓ | 285 |
+| **8.3.4** | Sprawdź, czy wszystkie wrażliwe dane tworzone i przetwarzane przez aplikację zostały zidentyfikowane i upewnij się, że istnieje polityka postępowania z wrażliwymi danymi. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 200 |
+| **8.3.5** | Sprawdź, czy dostęp do danych wrażliwych jest kontrolowany (bez rejestrowania samych danych wrażliwych), czy dane są gromadzone zgodnie z odpowiednimi dyrektywami o ochronie danych lub gdy wymagane jest rejestrowanie dostępu. | | ✓ | ✓ | 532 |
+| **8.3.6** | Zweryfikuj, czy poufne informacje zawarte w pamięci są zastępowane, gdy tylko nie są już potrzebne do łagodzenia ataków zrzucających pamięć, przy użyciu zer lub losowych danych. | | ✓ | ✓ | 226 |
+| **8.3.7** | Sprawdź, czy poufne lub prywatne informacje, które mają być szyfrowane, są szyfrowane przy użyciu zatwierdzonych algorytmów, które zapewniają zarówno poufność, jak i integralność. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
+| **8.3.8** | Sprawdź, czy wrażliwe dane osobowe podlegają klasyfikacji przechowywania danych, tak aby stare lub nieaktualne dane były usuwane automatycznie, zgodnie z harmonogramem lub w zależności od sytuacji. | | ✓ | ✓ | 285 |
 
-When considering data protection, a primary consideration should be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. Important criteria are the ability to detect, deter, or preferably block such abnormal bulk actions.
+Rozważając ochronę danych, należy przede wszystkim zwrócić uwagę na masową ekstrakcję lub modyfikację lub nadmierne użycie. Na przykład wiele systemów mediów społecznościowych pozwala użytkownikom dodawać tylko 100 nowych znajomych dziennie, ale nie ma znaczenia, z którego systemu pochodzą te prośby. Platforma bankowa może chcieć zablokować więcej niż 5 transakcji na godzinę, przekazując ponad 1000 euro środków do instytucji zewnętrznych. Wymagania każdego systemu mogą być bardzo różne, więc podjęcie decyzji o „nienormalności” musi uwzględniać model zagrożenia i ryzyko biznesowe. Ważnymi kryteriami są zdolność do wykrywania, powstrzymywania, a najlepiej blokowania takich nienormalnych działań masowych.
 
-## References
+## Bibliografia
 
-For more information, see also:
+Aby uzyskać więcej informacji, zobacz także:
 
-* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.io)
-* [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
-* [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
-* [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
-* [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
-* [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
+* [Rozważ skorzystanie z witryny Security Headers, aby sprawdzić nagłówki bezpieczeństwa i zapobiegające buforowaniu](https://securityheaders.io)
+* [Projekt OWASP Secure Headers](https://owasp.org/www-project-secure-headers/)
+* [Projekt OWASP dotyczący zagrożeń dla prywatności](https://owasp.org/www-project-top-10-privacy-risks/)
+* [Ściągawka ochrony prywatności użytkowników OWASP](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
+* [Przegląd ogólnego rozporządzenia Unii Europejskiej o ochronie danych (RODO)](https://edps.europa.eu/data-protection_en)
+* [Inspektor Ochrony Danych Unii Europejskiej – Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
