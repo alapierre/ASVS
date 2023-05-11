@@ -1,51 +1,51 @@
-# V9 Communication
+# V9 Komunikacja
 
-## Control Objective
+## Cel kontrolny
 
-Ensure that a verified application meets the following high level requirements:
+Upewnij się, że zweryfikowana aplikacja spełnia następujące ogólne wymagania:
 
-* Require TLS or strong encryption, independent of sensitivity of the content.
-* Follow the latest guidance, including:
-  * Configuration advice
-  * Preferred algorithms and ciphers
-* Avoid weak or soon to be deprecated algorithms and ciphers, except as a last resort
-* Disable deprecated or known insecure algorithms and ciphers.
+* Wymagaj TLS lub silnego szyfrowania, niezależnie od wrażliwości treści.
+* Postępuj zgodnie z najnowszymi wskazówkami, w tym:
+  * Porady dotyczące konfiguracji
+  * Preferowane algorytmy i szyfry
+* Unikaj słabych lub wkrótce przestarzałych algorytmów i szyfrów, ***użyj tylko jako ostateczność***
+* Wyłącz przestarzałe lub znane niebezpieczne algorytmy i szyfry.
 
-Within these requirements:
+W ramach tych wymagań:
 
-* Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).
-* Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
-* Check your configuration periodically to ensure that secure communication is always present and effective.
+* Na bieżąco śledź zalecenia branżowe dotyczące bezpiecznej konfiguracji TLS, ponieważ ulegają one ciągłym zmianom(często z powodu błędów w istniejących algorytmach i szyfrach).
+* Użyj najnowszych wersji narzędzi do przeglądania konfiguracji TLS, aby skonfigurować preferowaną kolejność i wybór algorytmu.
+* Okresowo sprawdzaj swoją konfigurację, aby upewnić się, że bezpieczna komunikacja jest zawsze włączona i skuteczna.
 
-## V9.1 Client Communication Security
+## V9.1 Bezpieczeństwo komunikacji klienta
 
-Ensure all client messages are sent over encrypted networks, using TLS 1.2 or later.
-Use up to date tools to review the client configuration on a regular basis.
+Upewnij się, że wszystkie wiadomości klientów są wysyłane przez zaszyfrowaną komunikację przy użyciu protokołu TLS 1.2 lub nowszego.
+Używaj aktualnych narzędzi do regularnego przeglądania konfiguracji klienta.
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **9.1.1** | Verify that TLS is used for all client connectivity, and does not fall back to insecure or unencrypted communications. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
-| **9.1.2** | Verify using up to date TLS testing tools that only strong cipher suites are enabled, with the strongest cipher suites set as preferred. | ✓ | ✓ | ✓ | 326 |
-| **9.1.3** | Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option. | ✓ | ✓ | ✓ | 326 |
+| **9.1.1** | Sprawdź, czy protokół TLS jest używany do wszystkich połączeń klientów i nie ogranicza się do niezabezpieczonej lub niezaszyfrowanej komunikacji. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
+| **9.1.2** | Za pomocą aktualnych narzędzi testowych TLS sprawdź, czy włączone są tylko silne zestawy szyfrów, przy czym najsilniejsze zestawy szyfrów są ustawione jako preferowane. | ✓ | ✓ | ✓ | 326 |
+| **9.1.3** | Sprawdź, czy włączone są tylko najnowsze zalecane wersje protokołu TLS, takie jak TLS 1.2 i TLS 1.3. Najnowsza wersja protokołu TLS powinna być preferowaną opcją. | ✓ | ✓ | ✓ | 326 |
 
-## V9.2 Server Communication Security
+## Bezpieczeństwo komunikacji z serwerem w wersji 9.2
 
-Server communications are more than just HTTP. Secure connections to and from other systems, such as monitoring systems, management tools, remote access and ssh, middleware, database, mainframes, partner or external source systems &mdash; must be in place. All of these must be encrypted to prevent "hard on the outside, trivially easy to intercept on the inside".
+***Komunikacja z serwerem to coś więcej niż tylko HTTP. Bezpieczeństwo połączeń pomiędzy systemami, takimi jak systemy monitorowania, narzędzia do zarządzania, dostęp zdalny i ssh, oprogramowanie pośrednie, baza danych, komputery typu mainframe, systemy partnerskie lub zewnętrzne systemy źródłowe — powinno być zachowane. Wszelkie połączenia muszą być zaszyfrowane, aby zapobiec sytuacji, w której ruch jest nie do zabezpieczony na zewnątrz a banalnie łatwy do przechwycenia wewnątrz”.***
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **9.2.1** | Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
-| **9.2.2** | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols. | | ✓ | ✓ | 319 |
-| **9.2.3** | Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated. | | ✓ | ✓ | 287 |
-| **9.2.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | | ✓ | ✓ | 299 |
-| **9.2.5** | Verify that backend TLS connection failures are logged. | | | ✓ | 544 |
+| **9.2.1** | Sprawdź, czy połączenia do i z serwera korzystają z zaufanych certyfikatów TLS. W przypadku używania certyfikatów generowanych wewnętrznie lub z podpisem własnym, serwer należy skonfigurować tak, aby ufał tylko określonym wewnętrznym urzędom certyfikacji i określonym certyfikatom z podpisem własnym. Wszystkie inne należy odrzucić. | | ✓ | ✓ | 295 |
+| **9.2.2** | Sprawdź, czy szyfrowana komunikacja, taka jak TLS, jest używana dla wszystkich połączeń przychodzących i wychodzących, w tym portów zarządzania, monitorowania, uwierzytelniania, API lub wywołań usług sieciowych, baz danych, chmury, bezserwerowych, mainframe, połączeń zewnętrznych i partnerskich. Serwer nie może używać niezabezpieczonych lub niezaszyfrowanych protokołów. | | ✓ | ✓ | 319 |
+| **9.2.3** | Sprawdź, czy wszystkie szyfrowane połączenia z systemami zewnętrznymi, które obejmują poufne informacje lub funkcje, są uwierzytelniane. | | ✓ | ✓ | 287 |
+| **9.2.4** | Sprawdź, czy włączono i skonfigurowano odpowiednie unieważnianie certyfikatów, takie jak OCSP(Online Certificate Status Protocol) Stapling. | | ✓ | ✓ | 299 |
+| **9.2.5** | Sprawdź, czy rejestrowane są błędy połączeń TLS zaplecza. | | | ✓ | 544 |
 
-## References
+## Bibliografia
 
-For more information, see also:
+Aby uzyskać więcej informacji, zobacz także:
 
-* [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
-* Notes on “Approved modes of TLS”:
-    * In the past, the ASVS referred to the US standard FIPS 140-2, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
-    * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.
+* [OWASP – Ściągawka TLS](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
+* [OWASP – Przewodnik przypinania](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+* Uwagi dotyczące „Zatwierdzonych trybów TLS”:
+    * W przeszłości ASVS odwoływał się do amerykańskiego standardu FIPS 140-2, ale jako standard globalny stosowanie standardów amerykańskich może być trudne, sprzeczne lub mylące.
+    * Lepszą metodą osiągnięcia zgodności z sekcją 9.1 byłoby przejrzenie przewodników, takich jak [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) lub [generowanie znanych dobrych konfiguracji](https:// mozilla.github.io/server-side-tls/ssl-config-generator/) i korzystać ze znanych i aktualnych narzędzi oceny TLS w celu uzyskania pożądanego poziomu bezpieczeństwa.
