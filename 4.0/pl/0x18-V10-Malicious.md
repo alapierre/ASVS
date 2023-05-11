@@ -1,54 +1,54 @@
-# V10 Malicious Code
+# V10 Złośliwy kod
 
-## Control Objective
+## Cel kontrolny
 
-Ensure that code satisfies the following high level requirements:
+Upewnij się, że kod spełnia następujące wymagania:
 
-* Malicious activity is handled securely and properly to not affect the rest of the application.
-* Does not have time bombs or other time-based attacks.
-* Does not "phone home" to malicious or unauthorized destinations.
-* Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
+* Złośliwa aktywność jest obsługiwana w sposób bezpieczny i kontrolowany, aby nie wpływać na resztę aplikacji.
+* Nie ma bomb zegarowych ani innych ataków opartych na czasie.
+* Nie kontaktuje się z serwerami, które są złośliwe lub nieautoryzowane.
+* Nie ma tylnych furtek, "easter eggs", "salami attacks", rootkitów ani nieautoryzowanego kodu, który może być kontrolowany przez atakującego.
 
-Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
+Znalezienie złośliwego kodu jest dowodem negatywnym, którego nie można całkowicie zweryfikować. Należy dołożyć wszelkich starań, aby kod nie zawierał złośliwych oraz niepożądanych funkcji.
 
-## V10.1 Code Integrity
+## Integralność kodu V10.1
 
-The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
+Najlepszą obroną przed złośliwym kodem jest „ufaj, ale weryfikuj”. Wprowadzenie nieautoryzowanych lub złośliwych komend do kodu aplikacji jest często przestępstwem w wielu jurysdykcjach. Zasady i procedury powinny jasno określać sankcje dotyczące złośliwego kodu.
 
-Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
+Programiści powinni regularnie dokonywać sprawdzania kodu, szczególnie tego, który może uzyskiwać dostęp do funkcji czasu, we/wy lub sieciowych.
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.1.1** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | 749 |
+| **10.1.1** | Sprawdź, czy używane jest narzędzie do analizy kodu, które może wykryć potencjalnie złośliwy kod, taki jak funkcje czasowe, niebezpieczne operacje na plikach i połączenia sieciowe. | | | ✓ | 749 |
 
-## V10.2 Malicious Code Search
+## V10.2 Wyszukiwanie złośliwego kodu
 
-Malicious code is extremely rare and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists.
+Złośliwy kod jest niezwykle rzadki i trudny do wykrycia. Ręczny przegląd kodu wiersz po wierszu może pomóc w wyszukiwaniu bomb logicznych, ale nawet najbardziej doświadczony recenzent kodu będzie miał trudności ze znalezieniem złośliwego kodu, nawet jeśli wie, że istnieje.
 
-Complying with this section is not possible without complete access to source code, including third-party libraries.
+Zgodność z tą sekcją nie jest możliwa bez pełnego dostępu do kodu źródłowego, w tym bibliotek stron trzecich.
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data. | | ✓ | ✓ | 359 |
-| **10.2.2** | Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location. | | ✓ | ✓ | 272 |
-| **10.2.3** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered. | | | ✓ | 507 |
-| **10.2.4** | Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions. | | | ✓ | 511 |
-| **10.2.5** | Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs. | | | ✓ | 511 |
-| **10.2.6** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. | | | ✓ | 507 |
+| **10.2.1** | Sprawdź, czy kod źródłowy aplikacji i biblioteki stron trzecich nie zawiera nieautoryzowanych telefonów domowych lub możliwości gromadzenia danych. Jeśli taka funkcja istnieje, przed zebraniem jakichkolwiek danych należy uzyskać zgodę użytkownika na jej działanie. | | ✓ | ✓ | 359 |
+| **10.2.2** | Sprawdź, czy aplikacja nie prosi o niepotrzebne lub nadmierne uprawnienia do funkcji lub czujników związanych z prywatnością, takich jak kontakty, kamery, mikrofony lub lokalizacja. | | ✓ | ✓ | 272 |
+| **10.2.3** | Sprawdź, czy kod źródłowy aplikacji i biblioteki stron trzecich nie zawierają tylnych drzwi, takich jak zakodowane na stałe lub dodatkowe nieudokumentowane konta lub klucze, zaciemnianie kodu, nieudokumentowane binarne obiekty blob, rootkity lub anty-debugowanie, niebezpieczne funkcje debugowania lub w inne nieaktualne, niezabezpieczone lub ukryte funkcje, które w przypadku wykrycia mogą zostać użyte w złośliwy sposób. | | | ✓ | 507 |
+| **10.2.4** | Sprawdź, czy kod źródłowy aplikacji i biblioteki stron trzecich nie zawierają bomb zegarowych, wyszukując funkcje związane z datą i godziną. | | | ✓ | 511 |
+| **10.2.5** | Sprawdź, czy kod źródłowy aplikacji i biblioteki stron trzecich nie zawierają złośliwego kodu, takiego jak ***ataki salami***, obejścia logiki lub bomby logiczne. | | | ✓ | 511 |
+| **10.2.6** | Sprawdź, czy kod źródłowy aplikacji i biblioteki stron trzecich nie zawierają easter eggs ani żadnych innych potencjalnie niepożądanych funkcji. | | | ✓ | 507 |
 
-## V10.3 Application Integrity
+## V10.3 Integralność aplikacji
 
-Once an application is deployed, malicious code can still be inserted. Applications need to protect themselves against common attacks, such as executing unsigned code from untrusted sources and subdomain takeovers.
+Po wdrożeniu aplikacji nadal można wstawić złośliwy kod. Aplikacje muszą chronić się przed typowymi atakami, takimi jak wykonywanie niepodpisanego kodu z niezaufanych źródeł i przejmowanie subdomen.
 
-Complying with this section is likely to be operational and continuous.
+Przestrzeganie tej sekcji prawdopodobnie będzie operacyjne i ciągłe.
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Opis | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.3.1** | Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update. | ✓ | ✓ | ✓ | 16 |
-| **10.3.2** | Verify that the application employs integrity protections, such as code signing or subresource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet. | ✓ | ✓ | ✓ | 353 |
-| **10.3.3** | Verify that the application has protection from subdomain takeovers if the application relies upon DNS entries or DNS subdomains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change. | ✓ | ✓ | ✓ | 350 |
+| **10.3.1** | Sprawdź, czy jeśli aplikacja ma funkcję automatycznej aktualizacji klienta lub serwera, aktualizacje powinny być uzyskiwane za pośrednictwem bezpiecznych kanałów i podpisywane cyfrowo. Kod musi weryfikować podpis cyfrowy aktualizacji przed zainstalowaniem lub wykonaniem aktualizacji. | ✓ | ✓ | ✓ | 16 |
+| **10.3.2** | Sprawdź, czy aplikacja stosuje zabezpieczenia integralności, takie jak podpisywanie kodu lub integralność zasobów podrzędnych. Aplikacja nie może ładować ani wykonywać kodu z niezaufanych źródeł, takich jak ładowanie stałych, makr , modułów, wtyczek, kodu lub bibliotek z niezaufanych źródeł lub Internetu. | ✓ | ✓ | ✓ | 353 |
+| **10.3.3** | Sprawdź, czy aplikacja ma ochronę przed przejęciem subdomen, jeśli opiera się na wpisach DNS lub subdomenach DNS, takich jak wygasłe nazwy domen, nieaktualne wskaźniki DNS lub CNAME, wygasłe projekty w publicznych repozytoriach kodu źródłowego lub przejściowe interfejsy API w chmurze, funkcje bezserwerowe, lub zasobniki do przechowywania (*autogen-bucket-id*.cloud.example.com) lub podobne. Zabezpieczenia mogą obejmować zapewnienie, że nazwy DNS używane przez aplikacje są regularnie sprawdzane pod kątem wygaśnięcia lub zmiany. | ✓ | ✓ | ✓ | 350 |
 
-## References
+## Bibliografia
 
-* [Hostile Subdomain Takeover, Detectify Labs](https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/)
-* [Hijacking of abandoned subdomains part 2, Detectify Labs](https://labs.detectify.com/2014/12/08/hijacking-of-abandoned-subdomains-part-2/)
+* [Wrogie przejęcie subdomeny, Detectify Labs](https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/)
+* [Przejęcie opuszczonych subdomen, część 2, Detectify Labs](https://labs.detectify.com/2014/12/08/hijacking-of-abandoned-subdomains-part-2/)
